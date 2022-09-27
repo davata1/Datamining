@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Tugas 2 &#8212; Data Mining</title>
+    <title>Diskritisasi (Tugas 2) &#8212; Data Mining</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tugas 3" href="Tugas%203.html" />
-    <link rel="prev" title="Tugas 1" href="Tugas%201.html" />
+    <link rel="next" title="Implementasi K-NN pada database iris (Tugas 3)" href="ImplementasiK-NNpadadatabaseiris%28Tugas3%29.html" />
+    <link rel="prev" title="Dissimiliarity (Tugas 1)" href="Dissimiliarity%28Tugas1%29.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -122,18 +122,18 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Tugas%201.html">
-   Tugas 1
+  <a class="reference internal" href="Dissimiliarity%28Tugas1%29.html">
+   Dissimiliarity (Tugas 1)
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Tugas 2
+   Diskritisasi (Tugas 2)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Tugas%203.html">
-   Tugas 3
+  <a class="reference internal" href="ImplementasiK-NNpadadatabaseiris%28Tugas3%29.html">
+   Implementasi K-NN pada database iris (Tugas 3)
   </a>
  </li>
 </ul>
@@ -195,7 +195,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://colab.research.google.com/github/davata1/Datamining/blob/gh-pages/_sources/Tugas 2.ipynb"
+        <a href="https://colab.research.google.com/github/davata1/Datamining/blob/gh-pages/_sources/Diskritisasi(Tugas2).ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -255,7 +255,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/davata1/Datamining/issues/new?title=Issue%20on%20page%20%2FTugas 2.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/davata1/Datamining/issues/new?title=Issue%20on%20page%20%2FDiskritisasi(Tugas2).html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -283,7 +283,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Tugas 2.ipynb"
+        <a href="_sources/Diskritisasi(Tugas2).ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -342,92 +342,87 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Tugas 2
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lakukan-proses-diskritisasi-dengan-equal-width-dan-equal-frequency">
    1.Lakukan proses diskritisasi dengan equal width dan equal frequency
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#min-max">
    Min, Max
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-equal-frequency">
    Data Equal frequency
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-sepal-lenght">
    Data Sepal Lenght
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-sepal-widht">
    Data Sepal Widht
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-petal-length">
    Data Petal Length
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-petal-widht">
    Data Petal Widht
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lakukan-proses-diskritisasi-dengan-basis-entropy">
-   2.Lakukan proses diskritisasi dengan basis entropy
+   2. Lakukan proses diskritisasi dengan basis entropy
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membuat-sample-data">
    Membuat sample data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#buat-kategori">
    Buat Kategori
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membuat-fungsi-getoverollcategory">
    Membuat fungsi GetOverollCategory
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#memasukan-fungsi-splitter">
    Memasukan Fungsi Splitter
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membuat-fungsi-entropy">
    Membuat Fungsi Entropy
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membuat-fungsi-info">
    Membuat Fungsi Info
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membuat-fungsi-gain">
    Membuat Fungsi Gain
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dinitial">
    Dinitial
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#melakukan-split">
    Melakukan Split
   </a>
@@ -441,7 +436,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Tugas 2</h1>
+                <h1>Diskritisasi (Tugas 2)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -451,92 +446,87 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Tugas 2
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lakukan-proses-diskritisasi-dengan-equal-width-dan-equal-frequency">
    1.Lakukan proses diskritisasi dengan equal width dan equal frequency
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#min-max">
    Min, Max
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-equal-frequency">
    Data Equal frequency
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-sepal-lenght">
    Data Sepal Lenght
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-sepal-widht">
    Data Sepal Widht
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-petal-length">
    Data Petal Length
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-petal-widht">
    Data Petal Widht
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lakukan-proses-diskritisasi-dengan-basis-entropy">
-   2.Lakukan proses diskritisasi dengan basis entropy
+   2. Lakukan proses diskritisasi dengan basis entropy
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membuat-sample-data">
    Membuat sample data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#buat-kategori">
    Buat Kategori
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membuat-fungsi-getoverollcategory">
    Membuat fungsi GetOverollCategory
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#memasukan-fungsi-splitter">
    Memasukan Fungsi Splitter
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membuat-fungsi-entropy">
    Membuat Fungsi Entropy
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membuat-fungsi-info">
    Membuat Fungsi Info
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#membuat-fungsi-gain">
    Membuat Fungsi Gain
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dinitial">
    Dinitial
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#melakukan-split">
    Melakukan Split
   </a>
@@ -551,8 +541,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="tugas-2">
-<h1>Tugas 2<a class="headerlink" href="#tugas-2" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="diskritisasi-tugas-2">
+<h1>Diskritisasi (Tugas 2)<a class="headerlink" href="#diskritisasi-tugas-2" title="Permalink to this headline">#</a></h1>
 <p>Carilah data yang bertipe numerik ( data klassifikasi)</p>
 <ol class="simple">
 <li><p>Lakukan proses diskritisasi dengan equal width dan equal frequency</p></li>
@@ -873,13 +863,12 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lakukan-proses-diskritisasi-dengan-equal-width-dan-equal-frequency">
-<h1>1.Lakukan proses diskritisasi dengan equal width dan equal frequency<a class="headerlink" href="#lakukan-proses-diskritisasi-dengan-equal-width-dan-equal-frequency" title="Permalink to this headline">#</a></h1>
+<section id="lakukan-proses-diskritisasi-dengan-equal-width-dan-equal-frequency">
+<h2>1.Lakukan proses diskritisasi dengan equal width dan equal frequency<a class="headerlink" href="#lakukan-proses-diskritisasi-dengan-equal-width-dan-equal-frequency" title="Permalink to this headline">#</a></h2>
 <p>Proses diskritisasi berarti perpendekan dari suatu kenyataan dan kesinambungan.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="min-max">
-<h1>Min, Max<a class="headerlink" href="#min-max" title="Permalink to this headline">#</a></h1>
+<section id="min-max">
+<h2>Min, Max<a class="headerlink" href="#min-max" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SepalLength</span>
@@ -887,18 +876,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      5.1
-1      4.9
-2      4.7
-3      4.6
-4      5.0
-      ... 
-145    6.7
-146    6.3
-147    6.5
-148    6.2
-149    5.9
-Name: SepalLengthCm, Length: 150, dtype: float64
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">6233</span><span class="n">efe2a5dc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">SepalLength</span>
+
+<span class="ne">NameError</span>: name &#39;SepalLength&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -991,11 +974,11 @@ Name: PetalWidthCm, Length: 150, dtype: float64
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="data-equal-frequency">
-<h1>Data Equal frequency<a class="headerlink" href="#data-equal-frequency" title="Permalink to this headline">#</a></h1>
+<section id="data-equal-frequency">
+<h2>Data Equal frequency<a class="headerlink" href="#data-equal-frequency" title="Permalink to this headline">#</a></h2>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="data-sepal-lenght">
-<h1>Data Sepal Lenght<a class="headerlink" href="#data-sepal-lenght" title="Permalink to this headline">#</a></h1>
+<section id="data-sepal-lenght">
+<h2>Data Sepal Lenght<a class="headerlink" href="#data-sepal-lenght" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Qcut_Sepal_Length_Binning</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;SepalLengthCm&#39;</span><span class="p">],</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
@@ -1191,8 +1174,8 @@ Name: SepalLengthCm, dtype: int64
 </div></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="data-sepal-widht">
-<h1>Data Sepal Widht<a class="headerlink" href="#data-sepal-widht" title="Permalink to this headline">#</a></h1>
+<section id="data-sepal-widht">
+<h2>Data Sepal Widht<a class="headerlink" href="#data-sepal-widht" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Qcut_Sepal_Width_Binning</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;SepalWidthCm&#39;</span><span class="p">],</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
@@ -1388,8 +1371,8 @@ Name: SepalWidthCm, dtype: int64
 </div></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="data-petal-length">
-<h1>Data Petal Length<a class="headerlink" href="#data-petal-length" title="Permalink to this headline">#</a></h1>
+<section id="data-petal-length">
+<h2>Data Petal Length<a class="headerlink" href="#data-petal-length" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Qcut_Petal_Length_Binning</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;PetalLengthCm&#39;</span><span class="p">],</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
@@ -1585,8 +1568,8 @@ Name: PetalLengthCm, dtype: int64
 </div></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="data-petal-widht">
-<h1>Data Petal Widht<a class="headerlink" href="#data-petal-widht" title="Permalink to this headline">#</a></h1>
+<section id="data-petal-widht">
+<h2>Data Petal Widht<a class="headerlink" href="#data-petal-widht" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Qcut_Petal_Width_Binning</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;PetalWidthCm&#39;</span><span class="p">],</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="n">labels</span><span class="p">)</span>
@@ -1942,8 +1925,8 @@ Name: PetalWidthCm, dtype: int64
 </div></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="lakukan-proses-diskritisasi-dengan-basis-entropy">
-<h1>2.Lakukan proses diskritisasi dengan basis entropy<a class="headerlink" href="#lakukan-proses-diskritisasi-dengan-basis-entropy" title="Permalink to this headline">#</a></h1>
+<section id="lakukan-proses-diskritisasi-dengan-basis-entropy">
+<h2>2. Lakukan proses diskritisasi dengan basis entropy<a class="headerlink" href="#lakukan-proses-diskritisasi-dengan-basis-entropy" title="Permalink to this headline">#</a></h2>
 <blockquote>
 <div><p><em>Entropy adalah</em></p>
 </div></blockquote>
@@ -1969,8 +1952,8 @@ Name: PetalWidthCm, dtype: int64
 <div class="math notranslate nohighlight">
 \[Info_{A}(D) = \frac{|D_{_{1}}|}{|D|} Entropy(D_{1}) + \frac{|D_{2}|}{|D|} Entropy(D_{2})\]</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="membuat-sample-data">
-<h1>Membuat sample data<a class="headerlink" href="#membuat-sample-data" title="Permalink to this headline">#</a></h1>
+<section id="membuat-sample-data">
+<h2>Membuat sample data<a class="headerlink" href="#membuat-sample-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span><span class="o">=</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;SepalLengthCm&#39;</span><span class="p">]]</span>
@@ -2117,8 +2100,8 @@ Name: PetalWidthCm, dtype: int64
 </div></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="buat-kategori">
-<h1>Buat Kategori<a class="headerlink" href="#buat-kategori" title="Permalink to this headline">#</a></h1>
+<section id="buat-kategori">
+<h2>Buat Kategori<a class="headerlink" href="#buat-kategori" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -2299,8 +2282,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="membuat-fungsi-getoverollcategory">
-<h1>Membuat fungsi GetOverollCategory<a class="headerlink" href="#membuat-fungsi-getoverollcategory" title="Permalink to this headline">#</a></h1>
+<section id="membuat-fungsi-getoverollcategory">
+<h2>Membuat fungsi GetOverollCategory<a class="headerlink" href="#membuat-fungsi-getoverollcategory" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">GetOverollCategory</span><span class="p">(</span><span class="n">col</span><span class="p">):</span>
@@ -2314,8 +2297,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="memasukan-fungsi-splitter">
-<h1>Memasukan Fungsi Splitter<a class="headerlink" href="#memasukan-fungsi-splitter" title="Permalink to this headline">#</a></h1>
+<section id="memasukan-fungsi-splitter">
+<h2>Memasukan Fungsi Splitter<a class="headerlink" href="#memasukan-fungsi-splitter" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">splitter</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
@@ -2342,8 +2325,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="membuat-fungsi-entropy">
-<h1>Membuat Fungsi Entropy<a class="headerlink" href="#membuat-fungsi-entropy" title="Permalink to this headline">#</a></h1>
+<section id="membuat-fungsi-entropy">
+<h2>Membuat Fungsi Entropy<a class="headerlink" href="#membuat-fungsi-entropy" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">entropy</span> <span class="p">(</span><span class="n">d</span><span class="p">):</span>
@@ -2355,8 +2338,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="membuat-fungsi-info">
-<h1>Membuat Fungsi Info<a class="headerlink" href="#membuat-fungsi-info" title="Permalink to this headline">#</a></h1>
+<section id="membuat-fungsi-info">
+<h2>Membuat Fungsi Info<a class="headerlink" href="#membuat-fungsi-info" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
@@ -2368,8 +2351,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="membuat-fungsi-gain">
-<h1>Membuat Fungsi Gain<a class="headerlink" href="#membuat-fungsi-gain" title="Permalink to this headline">#</a></h1>
+<section id="membuat-fungsi-gain">
+<h2>Membuat Fungsi Gain<a class="headerlink" href="#membuat-fungsi-gain" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gain</span><span class="p">(</span><span class="n">Einitial</span><span class="p">,</span> <span class="n">Enew</span><span class="p">):</span>
@@ -2379,8 +2362,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="dinitial">
-<h1>Dinitial<a class="headerlink" href="#dinitial" title="Permalink to this headline">#</a></h1>
+<section id="dinitial">
+<h2>Dinitial<a class="headerlink" href="#dinitial" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">get_overoll</span> <span class="o">=</span> <span class="n">GetOverollCategory</span><span class="p">(</span><span class="s2">&quot;SepalLengthCm&quot;</span><span class="p">)</span>
@@ -2398,8 +2381,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="melakukan-split">
-<h1>Melakukan Split<a class="headerlink" href="#melakukan-split" title="Permalink to this headline">#</a></h1>
+<section id="melakukan-split">
+<h2>Melakukan Split<a class="headerlink" href="#melakukan-split" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">split1</span> <span class="o">=</span> <span class="n">splitter</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;SepalLengthCm&quot;</span><span class="p">)</span>
@@ -2443,6 +2426,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2471,17 +2455,17 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Tugas%201.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Dissimiliarity%28Tugas1%29.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Tugas 1</p>
+            <p class="prev-next-title">Dissimiliarity (Tugas 1)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Tugas%203.html" title="next page">
+    <a class='right-next' id="next-link" href="ImplementasiK-NNpadadatabaseiris%28Tugas3%29.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tugas 3</p>
+        <p class="prev-next-title">Implementasi K-NN pada database iris (Tugas 3)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

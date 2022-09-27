@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Tugas 1 &#8212; Data Mining</title>
+    <title>Dissimiliarity (Tugas 1) &#8212; Data Mining</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tugas 2" href="Tugas%202.html" />
+    <link rel="next" title="Diskritisasi (Tugas 2)" href="Diskritisasi%28Tugas2%29.html" />
     <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -123,17 +123,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Tugas 1
+   Dissimiliarity (Tugas 1)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Tugas%202.html">
-   Tugas 2
+  <a class="reference internal" href="Diskritisasi%28Tugas2%29.html">
+   Diskritisasi (Tugas 2)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Tugas%203.html">
-   Tugas 3
+  <a class="reference internal" href="ImplementasiK-NNpadadatabaseiris%28Tugas3%29.html">
+   Implementasi K-NN pada database iris (Tugas 3)
   </a>
  </li>
 </ul>
@@ -195,7 +195,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://colab.research.google.com/github/davata1/Datamining/blob/gh-pages/_sources/Tugas 1.ipynb"
+        <a href="https://colab.research.google.com/github/davata1/Datamining/blob/gh-pages/_sources/Dissimiliarity(Tugas1).ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -255,7 +255,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/davata1/Datamining/issues/new?title=Issue%20on%20page%20%2FTugas 1.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/davata1/Datamining/issues/new?title=Issue%20on%20page%20%2FDissimiliarity(Tugas1).html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -283,7 +283,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Tugas 1.ipynb"
+        <a href="_sources/Dissimiliarity(Tugas1).ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -343,6 +343,21 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tugas">
+   Tugas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kategori">
+   Kategori
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#change-values-to-1-0">
+   Change Values to 1/0 `
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dissimilarity-binary-assymetric-value-formula">
    Dissimilarity Binary Assymetric Value Formula
   </a>
@@ -356,7 +371,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Tugas 1</h1>
+                <h1>Dissimiliarity (Tugas 1)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -366,6 +381,21 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tugas">
+   Tugas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kategori">
+   Kategori
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#change-values-to-1-0">
+   Change Values to 1/0 `
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dissimilarity-binary-assymetric-value-formula">
    Dissimilarity Binary Assymetric Value Formula
@@ -381,8 +411,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="tugas-1">
-<h1>Tugas 1<a class="headerlink" href="#tugas-1" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="dissimiliarity-tugas-1">
+<h1>Dissimiliarity (Tugas 1)<a class="headerlink" href="#dissimiliarity-tugas-1" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
@@ -437,140 +467,140 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Collecting jupyter-book
   Downloading jupyter_book-0.13.1-py3-none-any.whl (43 kB)
-     |████████████████████████████████| 43 kB 1.5 MB/s 
+     |████████████████████████████████| 43 kB 1.4 MB/s 
 ?25hCollecting sphinx-jupyterbook-latex~=0.4.6
   Downloading sphinx_jupyterbook_latex-0.4.6-py3-none-any.whl (13 kB)
-Collecting sphinx-thebe~=0.1.1
-  Downloading sphinx_thebe-0.1.2-py3-none-any.whl (8.3 kB)
-Collecting myst-nb~=0.13.1
-  Downloading myst_nb-0.13.2-py3-none-any.whl (41 kB)
-     |████████████████████████████████| 41 kB 47 kB/s 
-?25hCollecting linkify-it-py~=1.0.1
-  Downloading linkify_it_py-1.0.3-py3-none-any.whl (19 kB)
+Collecting jsonschema&lt;4
+  Downloading jsonschema-3.2.0-py2.py3-none-any.whl (56 kB)
+     |████████████████████████████████| 56 kB 3.8 MB/s 
+?25hRequirement already satisfied: click&lt;9,&gt;=7.1 in /usr/local/lib/python3.7/dist-packages (from jupyter-book) (7.1.2)
+Requirement already satisfied: pyyaml in /usr/local/lib/python3.7/dist-packages (from jupyter-book) (6.0)
 Collecting sphinx-design~=0.1.0
   Downloading sphinx_design-0.1.0-py3-none-any.whl (1.9 MB)
-     |████████████████████████████████| 1.9 MB 10.9 MB/s 
-?25hRequirement already satisfied: pyyaml in /usr/local/lib/python3.7/dist-packages (from jupyter-book) (6.0)
-Collecting sphinx_togglebutton
-  Downloading sphinx_togglebutton-0.3.2-py3-none-any.whl (8.2 kB)
-Requirement already satisfied: Jinja2 in /usr/local/lib/python3.7/dist-packages (from jupyter-book) (2.11.3)
-Collecting sphinx_book_theme~=0.3.2
-  Downloading sphinx_book_theme-0.3.3-py3-none-any.whl (345 kB)
-     |████████████████████████████████| 345 kB 36.3 MB/s 
-?25hCollecting jsonschema&lt;4
-  Downloading jsonschema-3.2.0-py2.py3-none-any.whl (56 kB)
-     |████████████████████████████████| 56 kB 4.5 MB/s 
-?25hCollecting sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0
-  Downloading sphinxcontrib_bibtex-2.5.0-py3-none-any.whl (39 kB)
-Collecting sphinx-multitoc-numbering~=0.1.3
-  Downloading sphinx_multitoc_numbering-0.1.3-py3-none-any.whl (4.6 kB)
-Collecting sphinx&lt;5,&gt;=4
-  Downloading Sphinx-4.5.0-py3-none-any.whl (3.1 MB)
-     |████████████████████████████████| 3.1 MB 28.6 MB/s 
-?25hRequirement already satisfied: click&lt;9,&gt;=7.1 in /usr/local/lib/python3.7/dist-packages (from jupyter-book) (7.1.2)
-Collecting sphinx-copybutton
-  Downloading sphinx_copybutton-0.5.0-py3-none-any.whl (12 kB)
+     |████████████████████████████████| 1.9 MB 43.6 MB/s 
+?25hCollecting sphinx-thebe~=0.1.1
+  Downloading sphinx_thebe-0.1.2-py3-none-any.whl (8.3 kB)
 Collecting sphinx-external-toc~=0.2.3
   Downloading sphinx_external_toc-0.2.4-py3-none-any.whl (25 kB)
 Collecting sphinx-comments
   Downloading sphinx_comments-0.0.3-py3-none-any.whl (4.6 kB)
+Collecting myst-nb~=0.13.1
+  Downloading myst_nb-0.13.2-py3-none-any.whl (41 kB)
+     |████████████████████████████████| 41 kB 40 kB/s 
+?25hCollecting sphinx_togglebutton
+  Downloading sphinx_togglebutton-0.3.2-py3-none-any.whl (8.2 kB)
+Collecting sphinx-copybutton
+  Downloading sphinx_copybutton-0.5.0-py3-none-any.whl (12 kB)
+Collecting sphinx&lt;5,&gt;=4
+  Downloading Sphinx-4.5.0-py3-none-any.whl (3.1 MB)
+     |████████████████████████████████| 3.1 MB 31.1 MB/s 
+?25hCollecting sphinx_book_theme~=0.3.2
+  Downloading sphinx_book_theme-0.3.3-py3-none-any.whl (345 kB)
+     |████████████████████████████████| 345 kB 43.4 MB/s 
+?25hCollecting linkify-it-py~=1.0.1
+  Downloading linkify_it_py-1.0.3-py3-none-any.whl (19 kB)
+Collecting sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0
+  Downloading sphinxcontrib_bibtex-2.5.0-py3-none-any.whl (39 kB)
 Requirement already satisfied: docutils&lt;0.18,&gt;=0.15 in /usr/local/lib/python3.7/dist-packages (from jupyter-book) (0.17.1)
-Requirement already satisfied: importlib-metadata in /usr/local/lib/python3.7/dist-packages (from jsonschema&lt;4-&gt;jupyter-book) (4.12.0)
+Collecting sphinx-multitoc-numbering~=0.1.3
+  Downloading sphinx_multitoc_numbering-0.1.3-py3-none-any.whl (4.6 kB)
+Requirement already satisfied: Jinja2 in /usr/local/lib/python3.7/dist-packages (from jupyter-book) (2.11.3)
 Requirement already satisfied: setuptools in /usr/local/lib/python3.7/dist-packages (from jsonschema&lt;4-&gt;jupyter-book) (57.4.0)
-Requirement already satisfied: attrs&gt;=17.4.0 in /usr/local/lib/python3.7/dist-packages (from jsonschema&lt;4-&gt;jupyter-book) (22.1.0)
 Requirement already satisfied: pyrsistent&gt;=0.14.0 in /usr/local/lib/python3.7/dist-packages (from jsonschema&lt;4-&gt;jupyter-book) (0.18.1)
 Requirement already satisfied: six&gt;=1.11.0 in /usr/local/lib/python3.7/dist-packages (from jsonschema&lt;4-&gt;jupyter-book) (1.15.0)
+Requirement already satisfied: importlib-metadata in /usr/local/lib/python3.7/dist-packages (from jsonschema&lt;4-&gt;jupyter-book) (4.12.0)
+Requirement already satisfied: attrs&gt;=17.4.0 in /usr/local/lib/python3.7/dist-packages (from jsonschema&lt;4-&gt;jupyter-book) (22.1.0)
 Collecting uc-micro-py
   Downloading uc_micro_py-1.0.1-py3-none-any.whl (6.2 kB)
-Collecting jupyter-cache~=0.4.1
-  Downloading jupyter_cache-0.4.3-py3-none-any.whl (31 kB)
-Collecting myst-parser~=0.15.2
-  Downloading myst_parser-0.15.2-py3-none-any.whl (46 kB)
-     |████████████████████████████████| 46 kB 4.2 MB/s 
-?25hCollecting jupyter-sphinx~=0.3.2
-  Downloading jupyter_sphinx-0.3.2-py3-none-any.whl (20 kB)
-Requirement already satisfied: nbformat~=5.0 in /usr/local/lib/python3.7/dist-packages (from myst-nb~=0.13.1-&gt;jupyter-book) (5.4.0)
 Requirement already satisfied: ipython in /usr/local/lib/python3.7/dist-packages (from myst-nb~=0.13.1-&gt;jupyter-book) (7.9.0)
 Requirement already satisfied: nbconvert&lt;7,&gt;=5.6 in /usr/local/lib/python3.7/dist-packages (from myst-nb~=0.13.1-&gt;jupyter-book) (5.6.1)
+Collecting myst-parser~=0.15.2
+  Downloading myst_parser-0.15.2-py3-none-any.whl (46 kB)
+     |████████████████████████████████| 46 kB 4.1 MB/s 
+?25hRequirement already satisfied: nbformat~=5.0 in /usr/local/lib/python3.7/dist-packages (from myst-nb~=0.13.1-&gt;jupyter-book) (5.4.0)
+Collecting jupyter-cache~=0.4.1
+  Downloading jupyter_cache-0.4.3-py3-none-any.whl (31 kB)
 Requirement already satisfied: ipywidgets&lt;8,&gt;=7.0.0 in /usr/local/lib/python3.7/dist-packages (from myst-nb~=0.13.1-&gt;jupyter-book) (7.7.1)
-Requirement already satisfied: traitlets&gt;=4.3.1 in /usr/local/lib/python3.7/dist-packages (from ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (5.1.1)
-Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in /usr/local/lib/python3.7/dist-packages (from ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (3.0.2)
+Collecting jupyter-sphinx~=0.3.2
+  Downloading jupyter_sphinx-0.3.2-py3-none-any.whl (20 kB)
 Requirement already satisfied: widgetsnbextension~=3.6.0 in /usr/local/lib/python3.7/dist-packages (from ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (3.6.1)
-Requirement already satisfied: ipython-genutils~=0.2.0 in /usr/local/lib/python3.7/dist-packages (from ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.2.0)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /usr/local/lib/python3.7/dist-packages (from ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (5.1.1)
 Requirement already satisfied: ipykernel&gt;=4.5.1 in /usr/local/lib/python3.7/dist-packages (from ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (5.3.4)
-Requirement already satisfied: tornado&gt;=4.2 in /usr/local/lib/python3.7/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (5.1.1)
+Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in /usr/local/lib/python3.7/dist-packages (from ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (3.0.3)
+Requirement already satisfied: ipython-genutils~=0.2.0 in /usr/local/lib/python3.7/dist-packages (from ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.2.0)
 Requirement already satisfied: jupyter-client in /usr/local/lib/python3.7/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (6.1.12)
-Requirement already satisfied: pickleshare in /usr/local/lib/python3.7/dist-packages (from ipython-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.7.5)
-Requirement already satisfied: pexpect in /usr/local/lib/python3.7/dist-packages (from ipython-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (4.8.0)
+Requirement already satisfied: tornado&gt;=4.2 in /usr/local/lib/python3.7/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (5.1.1)
 Collecting jedi&gt;=0.10
   Downloading jedi-0.18.1-py2.py3-none-any.whl (1.6 MB)
-     |████████████████████████████████| 1.6 MB 48.3 MB/s 
-?25hRequirement already satisfied: prompt-toolkit&lt;2.1.0,&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from ipython-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (2.0.10)
+     |████████████████████████████████| 1.6 MB 40.1 MB/s 
+?25hRequirement already satisfied: pickleshare in /usr/local/lib/python3.7/dist-packages (from ipython-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.7.5)
 Requirement already satisfied: pygments in /usr/local/lib/python3.7/dist-packages (from ipython-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (2.6.1)
-Requirement already satisfied: decorator in /usr/local/lib/python3.7/dist-packages (from ipython-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (4.4.2)
 Requirement already satisfied: backcall in /usr/local/lib/python3.7/dist-packages (from ipython-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.2.0)
+Requirement already satisfied: prompt-toolkit&lt;2.1.0,&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from ipython-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (2.0.10)
+Requirement already satisfied: pexpect in /usr/local/lib/python3.7/dist-packages (from ipython-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (4.8.0)
+Requirement already satisfied: decorator in /usr/local/lib/python3.7/dist-packages (from ipython-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (4.4.2)
 Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /usr/local/lib/python3.7/dist-packages (from jedi&gt;=0.10-&gt;ipython-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.8.3)
 Collecting nbdime
   Downloading nbdime-3.1.1-py2.py3-none-any.whl (5.3 MB)
-     |████████████████████████████████| 5.3 MB 51.4 MB/s 
+     |████████████████████████████████| 5.3 MB 41.5 MB/s 
 ?25hCollecting nbclient&lt;0.6,&gt;=0.2
   Downloading nbclient-0.5.13-py3-none-any.whl (70 kB)
-     |████████████████████████████████| 70 kB 8.5 MB/s 
-?25hRequirement already satisfied: sqlalchemy&lt;1.5,&gt;=1.3.12 in /usr/local/lib/python3.7/dist-packages (from jupyter-cache~=0.4.1-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (1.4.40)
-Collecting mdit-py-plugins~=0.2.8
-  Downloading mdit_py_plugins-0.2.8-py3-none-any.whl (41 kB)
-     |████████████████████████████████| 41 kB 42 kB/s 
-?25hCollecting markdown-it-py&lt;2.0.0,&gt;=1.0.0
+     |████████████████████████████████| 70 kB 6.3 MB/s 
+?25hRequirement already satisfied: sqlalchemy&lt;1.5,&gt;=1.3.12 in /usr/local/lib/python3.7/dist-packages (from jupyter-cache~=0.4.1-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (1.4.41)
+Collecting markdown-it-py&lt;2.0.0,&gt;=1.0.0
   Downloading markdown_it_py-1.1.0-py3-none-any.whl (83 kB)
-     |████████████████████████████████| 83 kB 2.4 MB/s 
-?25hRequirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from markdown-it-py&lt;2.0.0,&gt;=1.0.0-&gt;myst-parser~=0.15.2-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (4.1.1)
-Collecting attrs&gt;=17.4.0
+     |████████████████████████████████| 83 kB 2.2 MB/s 
+?25hCollecting mdit-py-plugins~=0.2.8
+  Downloading mdit_py_plugins-0.2.8-py3-none-any.whl (41 kB)
+     |████████████████████████████████| 41 kB 36 kB/s 
+?25hCollecting attrs&gt;=17.4.0
   Downloading attrs-21.4.0-py2.py3-none-any.whl (60 kB)
-     |████████████████████████████████| 60 kB 5.0 MB/s 
-?25hCollecting nest-asyncio
+     |████████████████████████████████| 60 kB 7.0 MB/s 
+?25hRequirement already satisfied: typing-extensions&gt;=3.7.4 in /usr/local/lib/python3.7/dist-packages (from markdown-it-py&lt;2.0.0,&gt;=1.0.0-&gt;myst-parser~=0.15.2-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (4.1.1)
+Collecting nest-asyncio
   Downloading nest_asyncio-1.5.5-py3-none-any.whl (5.2 kB)
 Requirement already satisfied: pyzmq&gt;=13 in /usr/local/lib/python3.7/dist-packages (from jupyter-client-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (23.2.1)
 Requirement already satisfied: jupyter-core&gt;=4.6.0 in /usr/local/lib/python3.7/dist-packages (from jupyter-client-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (4.11.1)
 Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/local/lib/python3.7/dist-packages (from jupyter-client-&gt;ipykernel&gt;=4.5.1-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (2.8.2)
-Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/local/lib/python3.7/dist-packages (from nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.4)
-Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/local/lib/python3.7/dist-packages (from nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (1.5.0)
 Requirement already satisfied: testpath in /usr/local/lib/python3.7/dist-packages (from nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.6.0)
-Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/local/lib/python3.7/dist-packages (from nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.8.4)
-Requirement already satisfied: defusedxml in /usr/local/lib/python3.7/dist-packages (from nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.7.1)
 Requirement already satisfied: bleach in /usr/local/lib/python3.7/dist-packages (from nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (5.0.1)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/local/lib/python3.7/dist-packages (from nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (1.5.0)
+Requirement already satisfied: defusedxml in /usr/local/lib/python3.7/dist-packages (from nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.7.1)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/local/lib/python3.7/dist-packages (from nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.4)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/local/lib/python3.7/dist-packages (from nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.8.4)
 Requirement already satisfied: MarkupSafe&gt;=0.23 in /usr/local/lib/python3.7/dist-packages (from Jinja2-&gt;jupyter-book) (2.0.1)
 Requirement already satisfied: fastjsonschema in /usr/local/lib/python3.7/dist-packages (from nbformat~=5.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (2.16.1)
 Requirement already satisfied: wcwidth in /usr/local/lib/python3.7/dist-packages (from prompt-toolkit&lt;2.1.0,&gt;=2.0.0-&gt;ipython-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.2.5)
-Requirement already satisfied: alabaster&lt;0.8,&gt;=0.7 in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (0.7.12)
-Requirement already satisfied: packaging in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (21.3)
-Requirement already satisfied: requests&gt;=2.5.0 in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (2.23.0)
-Collecting sphinxcontrib-applehelp
-  Downloading sphinxcontrib_applehelp-1.0.2-py2.py3-none-any.whl (121 kB)
-     |████████████████████████████████| 121 kB 68.0 MB/s 
-?25hRequirement already satisfied: babel&gt;=1.3 in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (2.10.3)
-Collecting sphinxcontrib-qthelp
-  Downloading sphinxcontrib_qthelp-1.0.3-py2.py3-none-any.whl (90 kB)
-     |████████████████████████████████| 90 kB 9.6 MB/s 
-?25hRequirement already satisfied: sphinxcontrib-serializinghtml&gt;=1.1.5 in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (1.1.5)
-Collecting sphinxcontrib-htmlhelp&gt;=2.0.0
-  Downloading sphinxcontrib_htmlhelp-2.0.0-py2.py3-none-any.whl (100 kB)
-     |████████████████████████████████| 100 kB 10.8 MB/s 
-?25hRequirement already satisfied: imagesize in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (1.4.1)
-Requirement already satisfied: snowballstemmer&gt;=1.1 in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (2.2.0)
+Collecting sphinxcontrib-jsmath
+  Downloading sphinxcontrib_jsmath-1.0.1-py2.py3-none-any.whl (5.1 kB)
 Collecting sphinxcontrib-devhelp
   Downloading sphinxcontrib_devhelp-1.0.2-py2.py3-none-any.whl (84 kB)
-     |████████████████████████████████| 84 kB 3.7 MB/s 
-?25hCollecting sphinxcontrib-jsmath
-  Downloading sphinxcontrib_jsmath-1.0.1-py2.py3-none-any.whl (5.1 kB)
+     |████████████████████████████████| 84 kB 3.3 MB/s 
+?25hRequirement already satisfied: sphinxcontrib-serializinghtml&gt;=1.1.5 in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (1.1.5)
+Collecting sphinxcontrib-qthelp
+  Downloading sphinxcontrib_qthelp-1.0.3-py2.py3-none-any.whl (90 kB)
+     |████████████████████████████████| 90 kB 9.3 MB/s 
+?25hRequirement already satisfied: imagesize in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (1.4.1)
+Requirement already satisfied: packaging in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (21.3)
+Collecting sphinxcontrib-applehelp
+  Downloading sphinxcontrib_applehelp-1.0.2-py2.py3-none-any.whl (121 kB)
+     |████████████████████████████████| 121 kB 56.6 MB/s 
+?25hRequirement already satisfied: snowballstemmer&gt;=1.1 in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (2.2.0)
+Requirement already satisfied: requests&gt;=2.5.0 in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (2.23.0)
+Collecting sphinxcontrib-htmlhelp&gt;=2.0.0
+  Downloading sphinxcontrib_htmlhelp-2.0.0-py2.py3-none-any.whl (100 kB)
+     |████████████████████████████████| 100 kB 9.4 MB/s 
+?25hRequirement already satisfied: alabaster&lt;0.8,&gt;=0.7 in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (0.7.12)
+Requirement already satisfied: babel&gt;=1.3 in /usr/local/lib/python3.7/dist-packages (from sphinx&lt;5,&gt;=4-&gt;jupyter-book) (2.10.3)
 Requirement already satisfied: pytz&gt;=2015.7 in /usr/local/lib/python3.7/dist-packages (from babel&gt;=1.3-&gt;sphinx&lt;5,&gt;=4-&gt;jupyter-book) (2022.2.1)
 Requirement already satisfied: zipp&gt;=0.5 in /usr/local/lib/python3.7/dist-packages (from importlib-metadata-&gt;jsonschema&lt;4-&gt;jupyter-book) (3.8.1)
-Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;5,&gt;=4-&gt;jupyter-book) (1.24.3)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;5,&gt;=4-&gt;jupyter-book) (2022.6.15)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;5,&gt;=4-&gt;jupyter-book) (1.24.3)
 Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;5,&gt;=4-&gt;jupyter-book) (3.0.4)
 Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.7/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;5,&gt;=4-&gt;jupyter-book) (2.10)
 Collecting pydata-sphinx-theme~=0.8.0
   Downloading pydata_sphinx_theme-0.8.1-py3-none-any.whl (3.3 MB)
-     |████████████████████████████████| 3.3 MB 40.3 MB/s 
+     |████████████████████████████████| 3.3 MB 35.9 MB/s 
 ?25hRequirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.7/dist-packages (from pydata-sphinx-theme~=0.8.0-&gt;sphinx_book_theme~=0.3.2-&gt;jupyter-book) (4.6.3)
 Requirement already satisfied: importlib-resources in /usr/local/lib/python3.7/dist-packages (from sphinx-jupyterbook-latex~=0.4.6-&gt;jupyter-book) (5.9.0)
 Requirement already satisfied: wheel in /usr/local/lib/python3.7/dist-packages (from sphinx_togglebutton-&gt;jupyter-book) (0.37.1)
@@ -578,61 +608,61 @@ Collecting pybtex-docutils&gt;=1.0.0
   Downloading pybtex_docutils-1.0.2-py3-none-any.whl (6.3 kB)
 Collecting pybtex&gt;=0.24
   Downloading pybtex-0.24.0-py2.py3-none-any.whl (561 kB)
-     |████████████████████████████████| 561 kB 55.3 MB/s 
+     |████████████████████████████████| 561 kB 54.7 MB/s 
 ?25hCollecting latexcodec&gt;=1.0.4
   Downloading latexcodec-2.0.1-py2.py3-none-any.whl (18 kB)
-Requirement already satisfied: greenlet!=0.4.17 in /usr/local/lib/python3.7/dist-packages (from sqlalchemy&lt;1.5,&gt;=1.3.12-&gt;jupyter-cache~=0.4.1-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (1.1.2)
+Requirement already satisfied: greenlet!=0.4.17 in /usr/local/lib/python3.7/dist-packages (from sqlalchemy&lt;1.5,&gt;=1.3.12-&gt;jupyter-cache~=0.4.1-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (1.1.3)
 Requirement already satisfied: notebook&gt;=4.4.1 in /usr/local/lib/python3.7/dist-packages (from widgetsnbextension~=3.6.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (5.3.1)
 Requirement already satisfied: Send2Trash in /usr/local/lib/python3.7/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (1.8.0)
 Requirement already satisfied: terminado&gt;=0.8.1 in /usr/local/lib/python3.7/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.13.3)
 Requirement already satisfied: ptyprocess in /usr/local/lib/python3.7/dist-packages (from terminado&gt;=0.8.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&lt;8,&gt;=7.0.0-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.7.0)
 Requirement already satisfied: webencodings in /usr/local/lib/python3.7/dist-packages (from bleach-&gt;nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (0.5.1)
-Collecting GitPython!=2.1.4,!=2.1.5,!=2.1.6
-  Downloading GitPython-3.1.27-py3-none-any.whl (181 kB)
-     |████████████████████████████████| 181 kB 67.5 MB/s 
-?25hCollecting colorama
-  Downloading colorama-0.4.5-py2.py3-none-any.whl (16 kB)
 Collecting jupyter-server
   Downloading jupyter_server-1.18.1-py3-none-any.whl (344 kB)
-     |████████████████████████████████| 344 kB 56.3 MB/s 
+     |████████████████████████████████| 344 kB 46.6 MB/s 
 ?25hCollecting jupyter-server-mathjax&gt;=0.2.2
   Downloading jupyter_server_mathjax-0.2.6-py3-none-any.whl (3.1 MB)
-     |████████████████████████████████| 3.1 MB 40.0 MB/s 
-?25hCollecting gitdb&lt;5,&gt;=4.0.1
+     |████████████████████████████████| 3.1 MB 40.3 MB/s 
+?25hCollecting GitPython!=2.1.4,!=2.1.5,!=2.1.6
+  Downloading GitPython-3.1.27-py3-none-any.whl (181 kB)
+     |████████████████████████████████| 181 kB 56.7 MB/s 
+?25hCollecting colorama
+  Downloading colorama-0.4.5-py2.py3-none-any.whl (16 kB)
+Collecting gitdb&lt;5,&gt;=4.0.1
   Downloading gitdb-4.0.9-py3-none-any.whl (63 kB)
-     |████████████████████████████████| 63 kB 1.9 MB/s 
+     |████████████████████████████████| 63 kB 1.3 MB/s 
 ?25hCollecting smmap&lt;6,&gt;=3.0.1
   Downloading smmap-5.0.0-py3-none-any.whl (24 kB)
-Collecting prometheus-client
-  Downloading prometheus_client-0.14.1-py3-none-any.whl (59 kB)
-     |████████████████████████████████| 59 kB 7.7 MB/s 
-?25hCollecting nbconvert&lt;7,&gt;=5.6
-  Downloading nbconvert-6.5.3-py3-none-any.whl (563 kB)
-     |████████████████████████████████| 563 kB 65.9 MB/s 
-?25hCollecting tornado&gt;=4.2
-  Downloading tornado-6.2-cp37-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (423 kB)
-     |████████████████████████████████| 423 kB 56.3 MB/s 
-?25hCollecting websocket-client
-  Downloading websocket_client-1.4.0-py3-none-any.whl (54 kB)
-     |████████████████████████████████| 54 kB 3.3 MB/s 
-?25hCollecting argon2-cffi
-  Downloading argon2_cffi-21.3.0-py3-none-any.whl (14 kB)
 Collecting anyio&lt;4,&gt;=3.1.0
   Downloading anyio-3.6.1-py3-none-any.whl (80 kB)
-     |████████████████████████████████| 80 kB 9.1 MB/s 
+     |████████████████████████████████| 80 kB 7.9 MB/s 
+?25hCollecting websocket-client
+  Downloading websocket_client-1.4.1-py3-none-any.whl (55 kB)
+     |████████████████████████████████| 55 kB 3.2 MB/s 
+?25hCollecting argon2-cffi
+  Downloading argon2_cffi-21.3.0-py3-none-any.whl (14 kB)
+Collecting nbconvert&lt;7,&gt;=5.6
+  Downloading nbconvert-6.5.3-py3-none-any.whl (563 kB)
+     |████████████████████████████████| 563 kB 42.6 MB/s 
+?25hCollecting prometheus-client
+  Downloading prometheus_client-0.14.1-py3-none-any.whl (59 kB)
+     |████████████████████████████████| 59 kB 6.6 MB/s 
+?25hCollecting tornado&gt;=4.2
+  Downloading tornado-6.2-cp37-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (423 kB)
+     |████████████████████████████████| 423 kB 46.6 MB/s 
 ?25hCollecting sniffio&gt;=1.1
-  Downloading sniffio-1.2.0-py3-none-any.whl (10 kB)
-Collecting jupyterlab-pygments
-  Downloading jupyterlab_pygments-0.2.2-py2.py3-none-any.whl (21 kB)
+  Downloading sniffio-1.3.0-py3-none-any.whl (10 kB)
+Requirement already satisfied: lxml in /usr/local/lib/python3.7/dist-packages (from nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (4.9.1)
+Collecting tinycss2
+  Downloading tinycss2-1.1.1-py3-none-any.whl (21 kB)
 Collecting Jinja2
   Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
-     |████████████████████████████████| 133 kB 56.7 MB/s 
-?25hCollecting tinycss2
-  Downloading tinycss2-1.1.1-py3-none-any.whl (21 kB)
-Requirement already satisfied: lxml in /usr/local/lib/python3.7/dist-packages (from nbconvert&lt;7,&gt;=5.6-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (4.9.1)
+     |████████████████████████████████| 133 kB 51.1 MB/s 
+?25hCollecting jupyterlab-pygments
+  Downloading jupyterlab_pygments-0.2.2-py2.py3-none-any.whl (21 kB)
 Collecting argon2-cffi-bindings
   Downloading argon2_cffi_bindings-21.2.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (86 kB)
-     |████████████████████████████████| 86 kB 5.2 MB/s 
+     |████████████████████████████████| 86 kB 5.1 MB/s 
 ?25hRequirement already satisfied: cffi&gt;=1.0.1 in /usr/local/lib/python3.7/dist-packages (from argon2-cffi-bindings-&gt;argon2-cffi-&gt;jupyter-server-&gt;nbdime-&gt;jupyter-cache~=0.4.1-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (1.15.1)
 Requirement already satisfied: pycparser in /usr/local/lib/python3.7/dist-packages (from cffi&gt;=1.0.1-&gt;argon2-cffi-bindings-&gt;argon2-cffi-&gt;jupyter-server-&gt;nbdime-&gt;jupyter-cache~=0.4.1-&gt;myst-nb~=0.13.1-&gt;jupyter-book) (2.21)
 Requirement already satisfied: pyparsing!=3.0.5,&gt;=2.0.2 in /usr/local/lib/python3.7/dist-packages (from packaging-&gt;sphinx&lt;5,&gt;=4-&gt;jupyter-book) (3.0.9)
@@ -664,7 +694,7 @@ Installing collected packages: attrs, tornado, jsonschema, nest-asyncio, jedi, t
 <span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
 <span class=" -Color -Color-Red">google-colab 1.0.0 requires tornado~=5.1.0, but you have tornado 6.2 which is incompatible.</span>
 <span class=" -Color -Color-Red">flask 1.1.4 requires Jinja2&lt;3.0,&gt;=2.10.1, but you have jinja2 3.1.2 which is incompatible.</span>
-Successfully installed GitPython-3.1.27 Jinja2-3.1.2 anyio-3.6.1 argon2-cffi-21.3.0 argon2-cffi-bindings-21.2.0 attrs-21.4.0 colorama-0.4.5 gitdb-4.0.9 jedi-0.18.1 jsonschema-3.2.0 jupyter-book-0.13.1 jupyter-cache-0.4.3 jupyter-server-1.18.1 jupyter-server-mathjax-0.2.6 jupyter-sphinx-0.3.2 jupyterlab-pygments-0.2.2 latexcodec-2.0.1 linkify-it-py-1.0.3 markdown-it-py-1.1.0 mdit-py-plugins-0.2.8 myst-nb-0.13.2 myst-parser-0.15.2 nbclient-0.5.13 nbconvert-6.5.3 nbdime-3.1.1 nest-asyncio-1.5.5 prometheus-client-0.14.1 pybtex-0.24.0 pybtex-docutils-1.0.2 pydata-sphinx-theme-0.8.1 smmap-5.0.0 sniffio-1.2.0 sphinx-4.5.0 sphinx-book-theme-0.3.3 sphinx-comments-0.0.3 sphinx-copybutton-0.5.0 sphinx-design-0.1.0 sphinx-external-toc-0.2.4 sphinx-jupyterbook-latex-0.4.6 sphinx-multitoc-numbering-0.1.3 sphinx-thebe-0.1.2 sphinx-togglebutton-0.3.2 sphinxcontrib-applehelp-1.0.2 sphinxcontrib-bibtex-2.5.0 sphinxcontrib-devhelp-1.0.2 sphinxcontrib-htmlhelp-2.0.0 sphinxcontrib-jsmath-1.0.1 sphinxcontrib-qthelp-1.0.3 tinycss2-1.1.1 tornado-6.2 uc-micro-py-1.0.1 websocket-client-1.4.0
+Successfully installed GitPython-3.1.27 Jinja2-3.1.2 anyio-3.6.1 argon2-cffi-21.3.0 argon2-cffi-bindings-21.2.0 attrs-21.4.0 colorama-0.4.5 gitdb-4.0.9 jedi-0.18.1 jsonschema-3.2.0 jupyter-book-0.13.1 jupyter-cache-0.4.3 jupyter-server-1.18.1 jupyter-server-mathjax-0.2.6 jupyter-sphinx-0.3.2 jupyterlab-pygments-0.2.2 latexcodec-2.0.1 linkify-it-py-1.0.3 markdown-it-py-1.1.0 mdit-py-plugins-0.2.8 myst-nb-0.13.2 myst-parser-0.15.2 nbclient-0.5.13 nbconvert-6.5.3 nbdime-3.1.1 nest-asyncio-1.5.5 prometheus-client-0.14.1 pybtex-0.24.0 pybtex-docutils-1.0.2 pydata-sphinx-theme-0.8.1 smmap-5.0.0 sniffio-1.3.0 sphinx-4.5.0 sphinx-book-theme-0.3.3 sphinx-comments-0.0.3 sphinx-copybutton-0.5.0 sphinx-design-0.1.0 sphinx-external-toc-0.2.4 sphinx-jupyterbook-latex-0.4.6 sphinx-multitoc-numbering-0.1.3 sphinx-thebe-0.1.2 sphinx-togglebutton-0.3.2 sphinxcontrib-applehelp-1.0.2 sphinxcontrib-bibtex-2.5.0 sphinxcontrib-devhelp-1.0.2 sphinxcontrib-htmlhelp-2.0.0 sphinxcontrib-jsmath-1.0.1 sphinxcontrib-qthelp-1.0.3 tinycss2-1.1.1 tornado-6.2 uc-micro-py-1.0.1 websocket-client-1.4.1
 </pre></div>
 </div>
 </div>
@@ -699,8 +729,9 @@ Your book template can be found at
 </div>
 </div>
 </div>
-<p>Tugas
-Mengukur jarak (dissimilarity)</p>
+<section id="tugas">
+<h2>Tugas<a class="headerlink" href="#tugas" title="Permalink to this headline">#</a></h2>
+<p>Mengukur jarak (dissimilarity)</p>
 <ol class="simple">
 <li><p>Ambil data dari Kaggle atau GitHub</p></li>
 <li><p>Ukur jarak
@@ -1055,9 +1086,9 @@ memory usage: 39.3+ KB
 </div>
 </div>
 </div>
-<blockquote>
-<div><p>Kategori</p>
-</div></blockquote>
+</section>
+<section id="kategori">
+<h2>Kategori<a class="headerlink" href="#kategori" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Survived</p></li>
 <li><p>Embarked</p></li>
@@ -1070,7 +1101,7 @@ memory usage: 39.3+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c395d29f-d90e-4463-8f1d-3f30c5e80f3a">
+  <div id="df-c4ea5ed7-de15-4228-806b-65a20b41698e">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1129,7 +1160,7 @@ memory usage: 39.3+ KB
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-c395d29f-d90e-4463-8f1d-3f30c5e80f3a')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-c4ea5ed7-de15-4228-806b-65a20b41698e')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1180,12 +1211,12 @@ memory usage: 39.3+ KB
 
       <script>
         const buttonEl =
-          document.querySelector('#df-c395d29f-d90e-4463-8f1d-3f30c5e80f3a button.colab-df-convert');
+          document.querySelector('#df-c4ea5ed7-de15-4228-806b-65a20b41698e button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-c395d29f-d90e-4463-8f1d-3f30c5e80f3a');
+          const element = document.querySelector('#df-c4ea5ed7-de15-4228-806b-65a20b41698e');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1206,9 +1237,9 @@ memory usage: 39.3+ KB
   </div>
 </div></div>
 </div>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">Change</span> <span class="pre">Values</span> <span class="pre">to</span> <span class="pre">1/0</span> </code></p>
-</div></blockquote>
+</section>
+<section id="change-values-to-1-0">
+<h2>Change Values to 1/0 `<a class="headerlink" href="#change-values-to-1-0" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Ambil data Embarked</p></li>
 <li><p>Jika values adalah S ubah menjadi 1</p></li>
@@ -1774,6 +1805,7 @@ memory usage: 39.3+ KB
 </div>
 </div>
 </div>
+</section>
 <section id="dissimilarity-binary-assymetric-value-formula">
 <h2>Dissimilarity Binary Assymetric Value Formula<a class="headerlink" href="#dissimilarity-binary-assymetric-value-formula" title="Permalink to this headline">#</a></h2>
 <div class="math notranslate nohighlight">
@@ -1871,10 +1903,10 @@ memory usage: 39.3+ KB
             <p class="prev-next-title">Welcome to your Jupyter Book</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Tugas%202.html" title="next page">
+    <a class='right-next' id="next-link" href="Diskritisasi%28Tugas2%29.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tugas 2</p>
+        <p class="prev-next-title">Diskritisasi (Tugas 2)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
