@@ -1,0 +1,1661 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>K mean clustering (Tugas 5) &#8212; Data Mining</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Implementasi Naive Bayes (Tugas 4)" href="Tugas-4.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Mining</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Penambangan Data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas-1.html">
+   Dissimiliarity (Tugas 1)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas-2.html">
+   Diskritisasi (Tugas 2)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas-3.html">
+   Implementasi K-NN pada database iris (Tugas 3)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas-4.html">
+   Implementasi Naive Bayes (Tugas 4)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   K mean clustering (Tugas 5)
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://colab.research.google.com/github/davata1/Datamining/blob/gh-pages/_sources/Tugas_5.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/davata1/Datamining"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/davata1/Datamining/issues/new?title=Issue%20on%20page%20%2FTugas_5.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Tugas_5.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   K mean clustering (Tugas 5)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hitung-data">
+   Hitung Data
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>K mean clustering (Tugas 5)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   K mean clustering (Tugas 5)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hitung-data">
+   Hitung Data
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="k-mean-clustering-tugas-5">
+<h1>K mean clustering (Tugas 5)<a class="headerlink" href="#k-mean-clustering-tugas-5" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">unique</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">where</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/datamining/tugas/data/Iris.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-b11adc53-73fd-48d0-8ad3-5cd48dbd8421">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>SepalLengthCm</th>
+      <th>SepalWidthCm</th>
+      <th>PetalLengthCm</th>
+      <th>PetalWidthCm</th>
+      <th>Species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>146</td>
+      <td>6.7</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.3</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>147</td>
+      <td>6.3</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>148</td>
+      <td>6.5</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.0</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>149</td>
+      <td>6.2</td>
+      <td>3.4</td>
+      <td>5.4</td>
+      <td>2.3</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>150</td>
+      <td>5.9</td>
+      <td>3.0</td>
+      <td>5.1</td>
+      <td>1.8</td>
+      <td>Iris-virginica</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 6 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-b11adc53-73fd-48d0-8ad3-5cd48dbd8421')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-b11adc53-73fd-48d0-8ad3-5cd48dbd8421 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-b11adc53-73fd-48d0-8ad3-5cd48dbd8421');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-dd917fe4-185c-4749-8923-814fba53f38c">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>SepalLengthCm</th>
+      <th>SepalWidthCm</th>
+      <th>PetalLengthCm</th>
+      <th>PetalWidthCm</th>
+      <th>Species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-dd917fe4-185c-4749-8923-814fba53f38c')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-dd917fe4-185c-4749-8923-814fba53f38c button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-dd917fe4-185c-4749-8923-814fba53f38c');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(150, 6)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="hitung-data">
+<h1>Hitung Data<a class="headerlink" href="#hitung-data" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># delete &#39;variety&#39; column</span>
+<span class="n">df_without_label</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Species&quot;</span><span class="p">])</span>
+<span class="n">df_without_label</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-7576d4f9-bdb6-4b12-b935-e5d81ac9be97">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Id</th>
+      <th>SepalLengthCm</th>
+      <th>SepalWidthCm</th>
+      <th>PetalLengthCm</th>
+      <th>PetalWidthCm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>146</td>
+      <td>6.7</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.3</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>147</td>
+      <td>6.3</td>
+      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>148</td>
+      <td>6.5</td>
+      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>149</td>
+      <td>6.2</td>
+      <td>3.4</td>
+      <td>5.4</td>
+      <td>2.3</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>150</td>
+      <td>5.9</td>
+      <td>3.0</td>
+      <td>5.1</td>
+      <td>1.8</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 5 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7576d4f9-bdb6-4b12-b935-e5d81ac9be97')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-7576d4f9-bdb6-4b12-b935-e5d81ac9be97 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-7576d4f9-bdb6-4b12-b935-e5d81ac9be97');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># separate target </span>
+
+<span class="c1"># values</span>
+<span class="n">X</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># </span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">le</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1,  1,  1,  1,  1,  3,  2,  1,  1,  0,  1,  1,  0,  0,  1,  3,  3,
+        2,  2,  2,  1,  3,  1,  4,  1,  1,  3,  1,  1,  1,  1,  3,  0,  1,
+        0,  1,  1,  0,  1,  1,  2,  2,  1,  5,  3,  2,  1,  1,  1,  1, 10,
+       11, 11,  9, 11,  9, 12,  6,  9, 10,  6, 11,  6, 10,  9, 10, 11,  6,
+       11,  7, 14,  9, 11,  8,  9, 10, 10, 13, 11,  6,  7,  6,  8, 12, 11,
+       12, 11,  9,  9,  9,  8, 10,  8,  6,  9,  8,  9,  9,  7,  9, 21, 15,
+       17, 14, 18, 17, 13, 14, 14, 21, 16, 15, 17, 16, 20, 19, 14, 18, 19,
+       11, 19, 16, 16, 14, 17, 14, 14, 14, 17, 12, 15, 16, 18, 11, 10, 19,
+       20, 14, 14, 17, 20, 19, 15, 19, 21, 19, 15, 16, 19, 14])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data_tes = np.array(labels)</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="c1"># kmeans.labels_</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">centroids</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centroids</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 68.        ,   5.78490566,   2.85849057,   3.81886792],
+       [122.5       ,   6.48928571,   2.95535714,   5.38571429],
+       [ 21.        ,   5.03658537,   3.44146341,   1.45853659]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Label&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-fa5bbc5c-cc9c-4ccc-89b9-aefa6dae03f2">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 1 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-fa5bbc5c-cc9c-4ccc-89b9-aefa6dae03f2')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-fa5bbc5c-cc9c-4ccc-89b9-aefa6dae03f2 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-fa5bbc5c-cc9c-4ccc-89b9-aefa6dae03f2');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">()</span>
+<span class="c1"># pca = PCA(n_components=2)</span>
+<span class="n">X_new</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_new</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 7.45410531e+01,  4.08041966e-01, -1.67187891e-01,
+         4.14697917e-02],
+       [ 7.35425448e+01,  2.74103351e-01,  3.25415580e-01,
+        -1.38484168e-01],
+       [ 7.25503976e+01,  4.34741494e-02,  2.37038467e-01,
+         7.28060752e-02],
+       [ 7.15449425e+01,  1.25559589e-01,  4.24436500e-01,
+         1.57682231e-01],
+       [ 7.05457903e+01,  2.03177345e-01, -2.20286071e-01,
+         1.55865750e-01],
+       [ 6.95315089e+01,  6.24870481e-01, -5.83114959e-01,
+         1.97857830e-01],
+       [ 6.85519476e+01, -7.78343360e-02,  1.36604362e-01,
+         2.90968715e-01],
+       [ 6.75436439e+01,  1.78388337e-01, -5.30131127e-02,
+         6.35510717e-02],
+       [ 6.65541830e+01, -2.49529805e-01,  6.22204564e-01,
+         1.07530662e-01],
+       [ 6.55453069e+01,  5.56046511e-02,  2.22053501e-01,
+        -6.25902272e-02],
+       [ 6.45416017e+01,  2.68973939e-01, -5.23459456e-01,
+        -2.70959953e-02],
+       [ 6.35457663e+01,  8.16806801e-03,  5.70863707e-02,
+         2.24416958e-01],
+       [ 6.25520909e+01, -1.93417444e-01,  3.01834079e-01,
+        -1.10353218e-01],
+       [ 6.15704157e+01, -7.47745105e-01,  4.68492199e-01,
+         9.27715656e-02],
+       [ 6.05510549e+01,  6.62088619e-02, -1.09451998e+00,
+        -2.46898117e-01],
+       [ 5.95439995e+01,  2.25283210e-01, -1.26861613e+00,
+         1.89250162e-01],
+       [ 5.85540250e+01, -1.31246684e-01, -7.84965476e-01,
+        -8.02847111e-03],
+       [ 5.75536953e+01, -2.33824559e-01, -2.86243469e-01,
+        -1.77597818e-02],
+       [ 5.65366822e+01,  2.92259370e-01, -7.55981279e-01,
+        -1.08679637e-01],
+       [ 5.55527889e+01, -2.29065746e-01, -5.04665060e-01,
+         2.02791435e-01],
+       [ 5.45406801e+01,  6.67266979e-02, -2.95466180e-01,
+        -1.63785361e-01],
+       [ 5.35538795e+01, -3.02937649e-01, -4.40132035e-01,
+         1.33946890e-01],
+       [ 5.25789754e+01, -1.02601939e+00, -2.57341629e-01,
+         1.91414672e-01],
+       [ 5.15466119e+01, -2.01488248e-01, -7.75730410e-02,
+        -3.67460959e-02],
+       [ 5.05446820e+01, -2.27077214e-01,  5.96547861e-02,
+         3.04794717e-01],
+       [ 4.95518589e+01, -4.09469875e-01,  1.66289934e-01,
+        -2.04777716e-01],
+       [ 4.85541895e+01, -4.53793956e-01, -1.54871590e-01,
+         3.92436339e-02],
+       [ 4.75561821e+01, -4.73999766e-01, -3.78526984e-01,
+        -7.71663543e-02],
+       [ 4.65601130e+01, -5.95312755e-01, -3.38194328e-01,
+        -1.84417128e-01],
+       [ 4.55597245e+01, -7.20367095e-01,  1.41561112e-01,
+         1.04406538e-01],
+       [ 4.45587056e+01, -7.04286746e-01,  1.59642946e-01,
+        -2.74098823e-02],
+       [ 4.35560283e+01, -5.18994584e-01, -4.34909419e-01,
+        -2.85891021e-01],
+       [ 4.25622808e+01, -6.72634877e-01, -8.84780713e-01,
+         2.76671346e-01],
+       [ 4.15629076e+01, -6.40645291e-01, -1.16189057e+00,
+         9.38053900e-02],
+       [ 4.05638983e+01, -8.88316709e-01,  4.69717690e-02,
+        -1.49692541e-01],
+       [ 3.95744247e+01, -1.13111380e+00, -1.85636441e-01,
+        -2.83427203e-01],
+       [ 3.85659454e+01, -8.27621150e-01, -6.64327068e-01,
+        -3.91671732e-01],
+       [ 3.75661293e+01, -1.00158727e+00,  2.59619611e-02,
+        -1.60144819e-01],
+       [ 3.65804734e+01, -1.46907519e+00,  3.02363283e-01,
+         2.29939255e-02],
+       [ 3.55660751e+01, -9.77635608e-01, -3.30572191e-01,
+        -1.14395858e-01],
+       [ 3.45757493e+01, -1.23962555e+00, -4.25067840e-01,
+        -7.33282635e-02],
+       [ 3.35785614e+01, -1.51865771e+00,  7.77675961e-01,
+        -4.87048844e-01],
+       [ 3.25842415e+01, -1.62338622e+00,  1.17271078e-01,
+         1.32810276e-01],
+       [ 3.15672284e+01, -1.09730229e+00, -3.52466732e-01,
+         4.18904210e-02],
+       [ 3.05570446e+01, -8.32195340e-01, -5.54932238e-01,
+         2.83250404e-01],
+       [ 2.95766317e+01, -1.43939364e+00,  7.07261929e-02,
+        -2.25328273e-01],
+       [ 2.85692837e+01, -1.16330287e+00, -6.62549692e-01,
+         1.50611257e-01],
+       [ 2.75816441e+01, -1.62258175e+00,  6.54944864e-03,
+         2.43681988e-02],
+       [ 2.65712266e+01, -1.21798193e+00, -7.36129227e-01,
+        -9.30355447e-02],
+       [ 2.55780648e+01, -1.49095568e+00, -2.99814497e-01,
+        -1.86547497e-01],
+       [ 2.44328243e+01,  2.32836927e+00, -2.67647345e-01,
+        -1.98646720e-01],
+       [ 2.34489310e+01,  1.80704416e+00, -1.63311261e-02,
+         1.12824352e-01],
+       [ 2.24281128e+01,  2.37269786e+00, -8.72525815e-02,
+        -1.17254657e-01],
+       [ 2.14770601e+01,  8.50558430e-01,  1.00159036e+00,
+        -6.23789717e-02],
+       [ 2.04446252e+01,  1.83773416e+00,  2.54566499e-01,
+        -1.69699015e-01],
+       [ 1.94598797e+01,  1.29721619e+00,  6.43995278e-01,
+         3.16574314e-01],
+       [ 1.84472440e+01,  1.73481856e+00, -1.40252980e-02,
+         3.07516859e-01],
+       [ 1.75137143e+01, -2.11668764e-01,  9.97339018e-01,
+         9.10645799e-02],
+       [ 1.64466307e+01,  1.73726033e+00,  9.45593971e-02,
+        -1.88214992e-01],
+       [ 1.54907905e+01,  3.75665947e-01,  7.74572238e-01,
+         3.21699497e-01],
+       [ 1.45058245e+01, -9.57808216e-02,  1.29944028e+00,
+        -1.49568466e-01],
+       [ 1.34731552e+01,  9.16188418e-01,  2.44376697e-01,
+         1.60839582e-01],
+       [ 1.24765270e+01,  7.73365528e-01,  7.49828200e-01,
+        -4.87892004e-01],
+       [ 1.14535944e+01,  1.37269702e+00,  3.58018994e-01,
+         1.68534705e-01],
+       [ 1.05005907e+01,  1.36785822e-01,  2.75048004e-01,
+         3.65369226e-02],
+       [ 9.45843186e+00,  1.35147825e+00, -2.27404354e-01,
+        -2.39087528e-01],
+       [ 8.47021924e+00,  8.26411782e-01,  4.63334650e-01,
+         4.68457985e-01],
+       [ 7.48137677e+00,  5.57179373e-01,  4.60226595e-01,
+        -2.11284079e-02],
+       [ 6.46033754e+00,  1.07720490e+00,  7.56917856e-01,
+        -4.32256891e-01],
+       [ 5.49197023e+00,  2.10162601e-01,  6.47800829e-01,
+        -1.02718020e-01],
+       [ 4.45913793e+00,  1.08428076e+00,  2.11489978e-01,
+         5.04577394e-01],
+       [ 3.48423453e+00,  4.75898396e-01,  1.62106933e-01,
+        -2.14446642e-01],
+       [ 2.44880073e+00,  1.31423923e+00,  5.64646181e-01,
+        -1.59458865e-01],
+       [ 1.46063421e+00,  9.96770279e-01,  3.66525865e-01,
+         7.18174185e-02],
+       [ 4.72012830e-01,  7.73166040e-01, -4.19490556e-03,
+        -2.36719500e-01],
+       [-5.33162435e-01,  9.23356113e-01, -1.65443022e-01,
+        -2.69348847e-01],
+       [-1.55027975e+00,  1.33406543e+00,  2.53846936e-03,
+        -3.61936313e-01],
+       [-2.55454466e+00,  1.41122545e+00, -4.56821892e-02,
+        -9.14310750e-02],
+       [-3.52671701e+00,  5.83752920e-01,  2.44017138e-01,
+         9.89486425e-02],
+       [-4.48722651e+00, -4.57644120e-01,  3.20959556e-01,
+        -3.09699836e-01],
+       [-5.49529645e+00, -3.40914329e-01,  6.71555253e-01,
+        -1.78353752e-01],
+       [-6.49096885e+00, -4.63869125e-01,  6.33348345e-01,
+        -2.23728165e-01],
+       [-7.50030044e+00, -1.79569327e-01,  2.92770279e-01,
+        -1.57170438e-01],
+       [-8.54529588e+00,  9.09439912e-01,  5.53301752e-01,
+         2.09117383e-01],
+       [-9.51366319e+00,  4.23976094e-02,  4.44184725e-01,
+         5.38656254e-01],
+       [-1.05195277e+01,  3.11245907e-01, -1.97703566e-01,
+         3.83941797e-01],
+       [-1.15367032e+01,  8.14178130e-01, -2.80862093e-01,
+        -1.86582510e-01],
+       [-1.25229181e+01,  3.25180317e-01,  4.60658076e-01,
+        -5.44924578e-01],
+       [-1.34990845e+01, -3.45030782e-01,  1.84448171e-01,
+         2.24246665e-01],
+       [-1.44953747e+01, -5.11971942e-01,  5.92393543e-01,
+        -6.40535827e-02],
+       [-1.55085701e+01, -2.10578836e-01,  6.31665264e-01,
+         1.61899968e-01],
+       [-1.65216025e+01,  2.28665345e-01,  5.21842517e-02,
+         9.09661528e-02],
+       [-1.74968445e+01, -4.70298123e-01,  3.32480788e-01,
+        -2.11997403e-01],
+       [-1.84612766e+01, -1.51707832e+00,  7.70306427e-01,
+        -1.62695080e-01],
+       [-1.94993967e+01, -4.81448548e-01,  4.09250885e-01,
+         5.96033493e-02],
+       [-2.04988287e+01, -4.71935425e-01,  1.13174464e-01,
+         1.75292371e-01],
+       [-2.14984817e+01, -5.08050473e-01,  1.84710758e-01,
+         1.09931917e-01],
+       [-2.25081513e+01, -1.99632404e-01, -5.83611772e-02,
+        -1.83941693e-01],
+       [-2.34473788e+01, -1.91254463e+00,  4.31145576e-01,
+        -2.48489752e-01],
+       [-2.44930636e+01, -7.04877172e-01,  2.11036875e-01,
+        -4.28704142e-03],
+       [-2.55666264e+01,  1.18109021e+00,  8.34781564e-02,
+         6.98790956e-01],
+       [-2.65291783e+01,  1.25425740e-01,  5.34151826e-01,
+         2.79315653e-01],
+       [-2.75736722e+01,  1.44286715e+00, -1.53749017e-01,
+        -6.73443732e-02],
+       [-2.85516465e+01,  7.33595108e-01,  2.51812049e-01,
+         2.73271953e-01],
+       [-2.95604058e+01,  9.68983123e-01,  1.21767571e-01,
+         2.82532927e-01],
+       [-3.06033581e+01,  2.18695916e+00, -2.23605659e-01,
+        -1.16844244e-01],
+       [-3.14924571e+01, -1.04102114e+00,  9.50082924e-01,
+         4.84904254e-01],
+       [-3.25874181e+01,  1.70090725e+00, -9.23201666e-02,
+        -1.11991849e-01],
+       [-3.35621465e+01,  9.30555531e-01,  3.79543391e-01,
+        -1.73697181e-01],
+       [-3.45746199e+01,  1.39130961e+00, -6.65056468e-01,
+         2.96849816e-01],
+       [-3.55300627e+01,  1.42772791e-01, -2.95756643e-01,
+         9.21488480e-02],
+       [-3.65371047e+01,  2.31425457e-01,  2.05799645e-01,
+        -7.04804379e-02],
+       [-3.75478022e+01,  5.67920651e-01, -1.88232882e-01,
+        -7.03786785e-02],
+       [-3.85160981e+01, -4.61766238e-01,  6.29442545e-01,
+         1.38319468e-01],
+       [-3.95191140e+01, -3.67055174e-01,  3.64569762e-01,
+         2.95898810e-01],
+       [-4.05321464e+01,  7.21890064e-02, -2.14911251e-01,
+         2.24964994e-01],
+       [-4.15407300e+01,  2.60307045e-01, -5.58825760e-02,
+         1.15052855e-01],
+       [-4.25962101e+01,  1.85813579e+00, -9.58212223e-01,
+         3.11791882e-01],
+       [-4.36073952e+01,  2.01047650e+00,  3.96665511e-02,
+        -3.50427895e-01],
+       [-4.45169239e+01, -5.26795756e-01,  6.62678238e-01,
+        -2.67582072e-01],
+       [-4.55495932e+01,  4.85173483e-01, -3.92385347e-01,
+         4.28259759e-02],
+       [-4.65040088e+01, -9.06139831e-01,  3.60048522e-01,
+         3.20641456e-01],
+       [-4.75964592e+01,  1.68576959e+00, -2.07832931e-01,
+        -3.24392186e-01],
+       [-4.85124792e+01, -6.14643959e-01,  5.04003202e-02,
+        -2.13394864e-01],
+       [-4.95434901e+01,  2.28113466e-01, -3.92029066e-01,
+         2.23677902e-01],
+       [-5.05607243e+01,  7.08569225e-01, -4.94154160e-01,
+        -4.82914279e-02],
+       [-5.15049017e+01, -8.66949667e-01, -2.68982292e-02,
+        -1.37405134e-01],
+       [-5.25055826e+01, -8.74987589e-01, -1.06322526e-01,
+         9.12097830e-02],
+       [-5.35348177e+01, -1.56489050e-01,  1.01815420e-01,
+         5.78373114e-02],
+       [-5.45513753e+01,  3.90429537e-01, -4.27495387e-01,
+        -2.69761161e-01],
+       [-5.55649086e+01,  7.15940913e-01, -2.90717535e-01,
+        -4.04238948e-01],
+       [-5.65777787e+01,  1.17833680e+00, -1.25677783e+00,
+         4.43168860e-03],
+       [-5.75318430e+01, -3.07516467e-01,  7.38023427e-02,
+         4.39009411e-02],
+       [-5.85118138e+01, -8.23458427e-01, -3.57646590e-02,
+        -1.02578787e-01],
+       [-5.95270516e+01, -5.36332752e-01,  3.77238315e-01,
+         1.12547938e-01],
+       [-6.05644944e+01,  6.80459217e-01, -6.43176391e-01,
+        -4.97274592e-01],
+       [-6.15251221e+01, -5.20590121e-01, -3.71993656e-01,
+         4.67678702e-01],
+       [-6.25233506e+01, -5.86424101e-01, -2.28036334e-01,
+         1.70219239e-01],
+       [-6.34924526e+01, -1.42770633e+00, -1.61107666e-01,
+         7.74504119e-02],
+       [-6.45251086e+01, -4.86158770e-01, -5.40518816e-01,
+        -2.10919105e-01],
+       [-6.55288011e+01, -4.57910533e-01, -3.78205886e-01,
+         2.28937902e-03],
+       [-6.65128694e+01, -8.17266304e-01, -6.48136270e-01,
+        -3.43558253e-01],
+       [-6.74986883e+01, -1.42260529e+00,  2.47017786e-01,
+         1.36467858e-01],
+       [-6.85382911e+01, -2.65033682e-01, -4.37598802e-01,
+         1.12928456e-01],
+       [-6.95286170e+01, -5.27023622e-01, -5.32094452e-01,
+         1.53996051e-01],
+       [-7.05111438e+01, -9.85844766e-01, -4.59497223e-01,
+        -2.44568727e-01],
+       [-7.14997525e+01, -1.39457006e+00,  7.76078930e-02,
+        -3.75391393e-01],
+       [-7.25069247e+01, -1.16574927e+00, -3.66594840e-01,
+        -1.18624977e-01],
+       [-7.35076645e+01, -1.19626365e+00, -4.64985704e-01,
+         4.08544917e-01],
+       [-7.44936583e+01, -1.63963330e+00, -9.10782514e-02,
+         2.31252324e-01]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve unique clusters</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+<span class="c1"># fit the model</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="c1"># assign a cluster to each example</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="c1"># create scatter plot for samples from each cluster</span>
+<span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">:</span>
+	<span class="c1"># get row indexes for samples with this cluster</span>
+	<span class="n">row_ix</span> <span class="o">=</span> <span class="n">where</span><span class="p">(</span><span class="n">yhat</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">)</span>
+	<span class="c1"># create scatter of these samples</span>
+	<span class="n">pyplot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_new</span><span class="p">[</span><span class="n">row_ix</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_new</span><span class="p">[</span><span class="n">row_ix</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="c1"># show the plot</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Tugas_5_17_0.png" src="_images/Tugas_5_17_0.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Tugas-4.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Implementasi Naive Bayes (Tugas 4)</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dhafa Febriyan Wiranata<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
