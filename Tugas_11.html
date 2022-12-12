@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Best Accuracy Between Normalization vs Unnomarlization (Tugas 9) &#8212; Data Mining</title>
+    <title>Ensamble Stacking (Tugas 11) &#8212; Data Mining</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Ensamble Stacking (Tugas 11)" href="Tugas_11.html" />
-    <link rel="prev" title="Implementasi Naive Bayes Studi Kasus Peminjaman Uang (Tugas 8)" href="Tugas_8.html" />
+    <link rel="next" title="&lt;no title&gt;" href="Uas_Pendat.html" />
+    <link rel="prev" title="Best Accuracy Between Normalization vs Unnomarlization (Tugas 9)" href="Tugas_9.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -154,13 +154,13 @@ const thebe_selector_output = ".output, .cell_output"
    Implementasi Naive Bayes Studi Kasus Peminjaman Uang (Tugas 8)
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tugas_9.html">
    Best Accuracy Between Normalization vs Unnomarlization (Tugas 9)
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Tugas_11.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Ensamble Stacking (Tugas 11)
   </a>
  </li>
@@ -223,7 +223,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://colab.research.google.com/github/davata1/Datamining/blob/gh-pages/_sources/Tugas_9.ipynb"
+        <a href="https://colab.research.google.com/github/davata1/Datamining/blob/gh-pages/_sources/Tugas_11.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -283,7 +283,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/davata1/Datamining/issues/new?title=Issue%20on%20page%20%2FTugas_9.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/davata1/Datamining/issues/new?title=Issue%20on%20page%20%2FTugas_11.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -311,7 +311,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/Tugas_9.ipynb"
+        <a href="_sources/Tugas_11.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -371,6 +371,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preprocessing-data">
+   Preprocessing Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#create-normalize-and-unnormalized-data">
    Create Normalize and Unnormalized data
   </a>
@@ -390,63 +395,9 @@ title="Print to PDF"
        Accuracy of Normalization Data
       </a>
      </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#accuracy-of-unnormalization-data">
-     Accuracy of Unnormalization Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Accuracy of Normalization Data
-    </a>
-    <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#k-3">
-       K 3
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#k-5">
-       K 5
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#k-7">
-       K 7
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#k-10">
-       K 10
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#accuracy-of-unormalization-data">
-     Accuracy of Unormalization Data
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       K 3
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       K 5
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id4">
-       K 7
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id5">
-       K 10
+      <a class="reference internal nav-link" href="#accuracy-of-unnormalization-data">
+       Accuracy of Unnormalization Data
       </a>
      </li>
     </ul>
@@ -457,58 +408,113 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
+      <a class="reference internal nav-link" href="#id1">
        Accuracy of Normalization Data
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id7">
+        <a class="reference internal nav-link" href="#k-3">
          K 3
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id8">
+        <a class="reference internal nav-link" href="#k-5">
          K 5
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id9">
+        <a class="reference internal nav-link" href="#k-7">
          K 7
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id10">
+        <a class="reference internal nav-link" href="#k-10">
          K 10
         </a>
        </li>
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
+      <a class="reference internal nav-link" href="#accuracy-of-unormalization-data">
        Accuracy of Unormalization Data
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id12">
+        <a class="reference internal nav-link" href="#id2">
          K 3
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id13">
+        <a class="reference internal nav-link" href="#id3">
          K 5
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id14">
+        <a class="reference internal nav-link" href="#id4">
          K 7
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id15">
+        <a class="reference internal nav-link" href="#id5">
          K 10
         </a>
        </li>
       </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ensemble-stacking">
+   Ensemble Stacking
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ensemble-stacking-dengan-data-yang-sudah-di-normalisasi">
+     Ensemble Stacking dengan data yang sudah di normalisasi
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#meta-classifier-is-decision-tree-classifier">
+       Meta Classifier is Decision Tree Classifier
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#meta-classifier-is-logistic-regression">
+       Meta Classifier is Logistic Regression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#meta-classifier-is-knn-k-7">
+       Meta Classifier is KNN (K = 7)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ensemble-stacking-dengan-data-yang-tidak-di-normalisasi">
+     Ensemble Stacking dengan data yang
+     <strong>
+      tidak
+     </strong>
+     di normalisasi
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Meta Classifier is Decision Tree Classifier
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Meta Classifier is Logistic Regression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Meta Classifier is KNN (K = 7)
+      </a>
      </li>
     </ul>
    </li>
@@ -523,7 +529,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Best Accuracy Between Normalization vs Unnomarlization (Tugas 9)</h1>
+                <h1>Ensamble Stacking (Tugas 11)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -533,6 +539,11 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preprocessing-data">
+   Preprocessing Data
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#create-normalize-and-unnormalized-data">
    Create Normalize and Unnormalized data
@@ -553,63 +564,9 @@ title="Print to PDF"
        Accuracy of Normalization Data
       </a>
      </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#accuracy-of-unnormalization-data">
-     Accuracy of Unnormalization Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Accuracy of Normalization Data
-    </a>
-    <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#k-3">
-       K 3
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#k-5">
-       K 5
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#k-7">
-       K 7
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#k-10">
-       K 10
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#accuracy-of-unormalization-data">
-     Accuracy of Unormalization Data
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       K 3
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       K 5
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id4">
-       K 7
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id5">
-       K 10
+      <a class="reference internal nav-link" href="#accuracy-of-unnormalization-data">
+       Accuracy of Unnormalization Data
       </a>
      </li>
     </ul>
@@ -620,58 +577,113 @@ title="Print to PDF"
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id6">
+      <a class="reference internal nav-link" href="#id1">
        Accuracy of Normalization Data
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id7">
+        <a class="reference internal nav-link" href="#k-3">
          K 3
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id8">
+        <a class="reference internal nav-link" href="#k-5">
          K 5
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id9">
+        <a class="reference internal nav-link" href="#k-7">
          K 7
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id10">
+        <a class="reference internal nav-link" href="#k-10">
          K 10
         </a>
        </li>
       </ul>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
+      <a class="reference internal nav-link" href="#accuracy-of-unormalization-data">
        Accuracy of Unormalization Data
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id12">
+        <a class="reference internal nav-link" href="#id2">
          K 3
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id13">
+        <a class="reference internal nav-link" href="#id3">
          K 5
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id14">
+        <a class="reference internal nav-link" href="#id4">
          K 7
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id15">
+        <a class="reference internal nav-link" href="#id5">
          K 10
         </a>
        </li>
       </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ensemble-stacking">
+   Ensemble Stacking
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ensemble-stacking-dengan-data-yang-sudah-di-normalisasi">
+     Ensemble Stacking dengan data yang sudah di normalisasi
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#meta-classifier-is-decision-tree-classifier">
+       Meta Classifier is Decision Tree Classifier
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#meta-classifier-is-logistic-regression">
+       Meta Classifier is Logistic Regression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#meta-classifier-is-knn-k-7">
+       Meta Classifier is KNN (K = 7)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ensemble-stacking-dengan-data-yang-tidak-di-normalisasi">
+     Ensemble Stacking dengan data yang
+     <strong>
+      tidak
+     </strong>
+     di normalisasi
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Meta Classifier is Decision Tree Classifier
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Meta Classifier is Logistic Regression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Meta Classifier is KNN (K = 7)
+      </a>
      </li>
     </ul>
    </li>
@@ -687,8 +699,52 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="best-accuracy-between-normalization-vs-unnomarlization-tugas-9">
-<h1>Best Accuracy Between Normalization vs Unnomarlization (Tugas 9)<a class="headerlink" href="#best-accuracy-between-normalization-vs-unnomarlization-tugas-9" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="ensamble-stacking-tugas-11">
+<h1>Ensamble Stacking (Tugas 11)<a class="headerlink" href="#ensamble-stacking-tugas-11" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">d5df0069828e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/google/colab/drive.py</span> in <span class="ni">mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, readonly)</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="n">mountpoint</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout_ms</span><span class="o">=</span><span class="mi">120000</span><span class="p">,</span> <span class="n">readonly</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>   <span class="sd">&quot;&quot;&quot;Mount your Google Drive at the specified mountpoint path.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">101</span>   <span class="k">return</span> <span class="n">_mount</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>       <span class="n">mountpoint</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>       <span class="n">force_remount</span><span class="o">=</span><span class="n">force_remount</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/google/colab/drive.py</span> in <span class="ni">_mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, ephemeral, readonly)</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span>       <span class="s1">&#39;TBE_EPHEM_CREDS_ADDR&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">ephemeral</span> <span class="k">else</span> <span class="n">_os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TBE_CREDS_ADDR&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span>   <span class="k">if</span> <span class="n">ephemeral</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">124</span>     <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span>         <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;dfs_ephemeral&#39;</span><span class="p">},</span> <span class="n">timeout_sec</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span> 
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/google/colab/_message.py</span> in <span class="ni">blocking_request</span><span class="nt">(request_type, request, timeout_sec, parent)</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span>   <span class="n">request_id</span> <span class="o">=</span> <span class="n">send_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span>       <span class="n">request_type</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">expect_reply</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">171</span>   <span class="k">return</span> <span class="n">read_reply_from_input</span><span class="p">(</span><span class="n">request_id</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/google/colab/_message.py</span> in <span class="ni">read_reply_from_input</span><span class="nt">(message_id, timeout_sec)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="n">reply</span> <span class="o">=</span> <span class="n">_read_next_input_message</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">_NOT_READY</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">97</span>       <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>       <span class="k">continue</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="k">if</span> <span class="p">(</span><span class="n">reply</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;colab_reply&#39;</span> <span class="ow">and</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Data Wrangling </span>
@@ -705,6 +761,12 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+
+<span class="c1">### ensamble stacking</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">StackingClassifier</span>
 
 <span class="c1">### Remove unnecessary warnings</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
@@ -741,9 +803,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>change dataframe’s label</p></li>
-</ul>
+<section id="preprocessing-data">
+<h2>Preprocessing Data<a class="headerlink" href="#preprocessing-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col_names</span> <span class="o">=</span> <span class="p">[]</span>
@@ -783,7 +844,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-07deac70-dff9-45ff-af77-21b00b9152ac">
+  <div id="df-809615e2-ad31-49f7-88a7-fc5782098073">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1083,7 +1144,7 @@ title="Print to PDF"
 </table>
 <p>1151 rows × 20 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-07deac70-dff9-45ff-af77-21b00b9152ac')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-809615e2-ad31-49f7-88a7-fc5782098073')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1134,12 +1195,12 @@ title="Print to PDF"
 
       <script>
         const buttonEl =
-          document.querySelector('#df-07deac70-dff9-45ff-af77-21b00b9152ac button.colab-df-convert');
+          document.querySelector('#df-809615e2-ad31-49f7-88a7-fc5782098073 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-07deac70-dff9-45ff-af77-21b00b9152ac');
+          const element = document.querySelector('#df-809615e2-ad31-49f7-88a7-fc5782098073');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1160,6 +1221,7 @@ title="Print to PDF"
   </div>
 </div></div>
 </div>
+</section>
 <section id="create-normalize-and-unnormalized-data">
 <h2>Create Normalize and Unnormalized data<a class="headerlink" href="#create-normalize-and-unnormalized-data" title="Permalink to this headline">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="k">for</span> <span class="n">data</span> <span class="n">test</span>
@@ -1219,7 +1281,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split unnormalized data</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">unnormalized_data</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="n">percent_amount_of_test_data</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">unnormalized_data</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="n">percent_amount_of_test_data</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1230,7 +1292,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split normalized data</span>
-<span class="n">X_train_norm</span><span class="p">,</span> <span class="n">X_test_norm</span><span class="p">,</span> <span class="n">y_train_norm</span><span class="p">,</span> <span class="n">y_test_norm</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">normalized_dataset</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="n">percent_amount_of_test_data</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">X_train_norm</span><span class="p">,</span> <span class="n">X_test_norm</span><span class="p">,</span> <span class="n">y_train_norm</span><span class="p">,</span> <span class="n">y_test_norm</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">normalized_dataset</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="n">percent_amount_of_test_data</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1242,6 +1304,9 @@ title="Print to PDF"
 <h3>Gaussian Naive bayes<a class="headerlink" href="#gaussian-naive-bayes" title="Permalink to this headline">#</a></h3>
 <section id="accuracy-of-normalization-data">
 <h4>Accuracy of Normalization Data<a class="headerlink" href="#accuracy-of-normalization-data" title="Permalink to this headline">#</a></h4>
+<blockquote>
+<div><p>Pemblokiran indentasi</p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_norm_nb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
@@ -1274,20 +1339,19 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_norm_nb</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi dengan data ternormalisasi </span><span class="si">{</span><span class="n">accuracy_norm_nb</span><span class="si">}</span><span class="s2"> model Gaussian Naive Bayes&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6363636363636364
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi dengan data ternormalisasi 0.6363636363636364 model Gaussian Naive Bayes
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
 <section id="accuracy-of-unnormalization-data">
-<h3>Accuracy of Unnormalization Data<a class="headerlink" href="#accuracy-of-unnormalization-data" title="Permalink to this headline">#</a></h3>
+<h4>Accuracy of Unnormalization Data<a class="headerlink" href="#accuracy-of-unnormalization-data" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_nb</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
@@ -1320,388 +1384,12 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_nb</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi dengan data tidak ternormalisasi </span><span class="si">{</span><span class="n">accuracy_nb</span><span class="si">}</span><span class="s2"> model Gaussian Naive Bayes&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.645021645021645
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># amount of K</span>
-<span class="n">k_is_3</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">k_is_5</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">k_is_7</span> <span class="o">=</span> <span class="mi">7</span>
-<span class="n">k_is_10</span> <span class="o">=</span> <span class="mi">10</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id1">
-<h3>Accuracy of Normalization Data<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-<section id="k-3">
-<h4>K 3<a class="headerlink" href="#k-3" title="Permalink to this headline">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_norm_knn_3</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_3</span><span class="p">)</span>
-<span class="n">clf_norm_knn_3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_norm</span><span class="p">,</span> <span class="n">y_train_norm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=3)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">post_norm_knn_3</span> <span class="o">=</span> <span class="n">clf_norm_knn_3</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_norm</span><span class="p">)</span>
-<span class="n">probas_norm_knn_3</span> <span class="o">=</span> <span class="n">post_norm_knn_3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">probas_norm_knn_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">probas_norm_knn_3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_norm_knn_3</span> <span class="o">=</span> <span class="n">probas_norm_knn_3</span>
-<span class="n">accuracy_norm_knn_3</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_norm</span><span class="p">,</span> <span class="n">pred_norm_knn_3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_norm_knn_3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6320346320346321
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="k-5">
-<h4>K 5<a class="headerlink" href="#k-5" title="Permalink to this headline">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_norm_knn_5</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_5</span><span class="p">)</span>
-<span class="n">clf_norm_knn_5</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_norm</span><span class="p">,</span> <span class="n">y_train_norm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier()
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">post_norm_knn_5</span> <span class="o">=</span> <span class="n">clf_norm_knn_5</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_norm</span><span class="p">)</span>
-<span class="n">probas_norm_knn_5</span> <span class="o">=</span> <span class="n">post_norm_knn_5</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">probas_norm_knn_5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">probas_norm_knn_5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_norm_knn_5</span> <span class="o">=</span> <span class="n">probas_norm_knn_5</span>
-<span class="n">accuracy_norm_knn_5</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_norm</span><span class="p">,</span> <span class="n">pred_norm_knn_5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_norm_knn_5</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6103896103896104
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="k-7">
-<h4>K 7<a class="headerlink" href="#k-7" title="Permalink to this headline">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_norm_knn_7</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_7</span><span class="p">)</span>
-<span class="n">clf_norm_knn_7</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_norm</span><span class="p">,</span> <span class="n">y_train_norm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=7)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">post_norm_knn_7</span> <span class="o">=</span> <span class="n">clf_norm_knn_7</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_norm</span><span class="p">)</span>
-<span class="n">probas_norm_knn_7</span> <span class="o">=</span> <span class="n">post_norm_knn_7</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">probas_norm_knn_7</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">probas_norm_knn_7</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_norm_knn_7</span> <span class="o">=</span> <span class="n">probas_norm_knn_7</span>
-<span class="n">accuracy_norm_knn_7</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_norm</span><span class="p">,</span> <span class="n">pred_norm_knn_7</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_norm_knn_7</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.645021645021645
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="k-10">
-<h4>K 10<a class="headerlink" href="#k-10" title="Permalink to this headline">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_norm_knn_10</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_10</span><span class="p">)</span>
-<span class="n">clf_norm_knn_10</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_norm</span><span class="p">,</span> <span class="n">y_train_norm</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=10)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">post_norm_knn_10</span> <span class="o">=</span> <span class="n">clf_norm_knn_10</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_norm</span><span class="p">)</span>
-<span class="n">probas_norm_knn_10</span> <span class="o">=</span> <span class="n">post_norm_knn_10</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">probas_norm_knn_10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">probas_norm_knn_10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_norm_knn_10</span> <span class="o">=</span> <span class="n">probas_norm_knn_10</span>
-<span class="n">accuracy_norm_knn_10</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_norm</span><span class="p">,</span> <span class="n">pred_norm_knn_10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_norm_knn_10</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.683982683982684
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="accuracy-of-unormalization-data">
-<h3>Accuracy of Unormalization Data<a class="headerlink" href="#accuracy-of-unormalization-data" title="Permalink to this headline">#</a></h3>
-<section id="id2">
-<h4>K 3<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_knn_3</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_3</span><span class="p">)</span>
-<span class="n">clf_knn_3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=3)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">post_knn_3</span> <span class="o">=</span> <span class="n">clf_knn_3</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">probas_knn_3</span> <span class="o">=</span> <span class="n">post_knn_3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">probas_knn_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">probas_knn_3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_knn_3</span> <span class="o">=</span> <span class="n">probas_knn_3</span>
-<span class="n">accuracy_knn_3</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred_knn_3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_knn_3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.658008658008658
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id3">
-<h4>K 5<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_knn_5</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_5</span><span class="p">)</span>
-<span class="n">clf_knn_5</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier()
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">post_knn_5</span> <span class="o">=</span> <span class="n">clf_knn_5</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">probas_knn_5</span> <span class="o">=</span> <span class="n">post_knn_5</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">probas_knn_5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">probas_knn_5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_knn_5</span> <span class="o">=</span> <span class="n">probas_knn_5</span>
-<span class="n">accuracy_knn_5</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred_knn_5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_knn_5</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.658008658008658
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id4">
-<h4>K 7<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_knn_7</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_7</span><span class="p">)</span>
-<span class="n">clf_knn_7</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=7)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">post_knn_7</span> <span class="o">=</span> <span class="n">clf_knn_7</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">probas_knn_7</span> <span class="o">=</span> <span class="n">post_knn_7</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">probas_knn_7</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">probas_knn_7</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_knn_7</span> <span class="o">=</span> <span class="n">probas_knn_7</span>
-<span class="n">accuracy_knn_7</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred_knn_7</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_knn_7</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6666666666666666
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id5">
-<h4>K 10<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_knn_10</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_10</span><span class="p">)</span>
-<span class="n">clf_knn_10</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(n_neighbors=10)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">post_knn_10</span> <span class="o">=</span> <span class="n">clf_knn_10</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">probas_knn_10</span> <span class="o">=</span> <span class="n">post_knn_10</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">probas_knn_10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">probas_knn_10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_knn_10</span> <span class="o">=</span> <span class="n">probas_knn_10</span>
-<span class="n">accuracy_knn_10</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred_knn_10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_knn_10</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6623376623376623
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi dengan data tidak ternormalisasi 0.645021645021645 model Gaussian Naive Bayes
 </pre></div>
 </div>
 </div>
@@ -1721,10 +1409,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="id6">
-<h4>Accuracy of Normalization Data<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
-<section id="id7">
-<h5>K 3<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h5>
+<section id="id1">
+<h4>Accuracy of Normalization Data<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<section id="k-3">
+<h5>K 3<a class="headerlink" href="#k-3" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_norm_knn_3</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_3</span><span class="p">)</span>
@@ -1757,19 +1445,19 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_norm_knn_3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi dengan data ternormalisasi </span><span class="si">{</span><span class="n">accuracy_norm_knn_3</span><span class="si">}</span><span class="s2"> model KNN-3&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6320346320346321
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi dengan data ternormalisasi 0.6320346320346321 model KNN-3
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="id8">
-<h5>K 5<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h5>
+<section id="k-5">
+<h5>K 5<a class="headerlink" href="#k-5" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_norm_knn_5</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_5</span><span class="p">)</span>
@@ -1802,19 +1490,19 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_norm_knn_5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi dengan data ternormalisasi </span><span class="si">{</span><span class="n">accuracy_norm_knn_5</span><span class="si">}</span><span class="s2"> model KNN-5&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6103896103896104
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi dengan data ternormalisasi 0.6103896103896104 model KNN-5
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="id9">
-<h5>K 7<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h5>
+<section id="k-7">
+<h5>K 7<a class="headerlink" href="#k-7" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_norm_knn_7</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_7</span><span class="p">)</span>
@@ -1847,19 +1535,19 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_norm_knn_7</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi dengan data ternormalisasi </span><span class="si">{</span><span class="n">accuracy_norm_knn_7</span><span class="si">}</span><span class="s2"> model KNN-7&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.645021645021645
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi dengan data ternormalisasi 0.645021645021645 model KNN-7
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="id10">
-<h5>K 10<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h5>
+<section id="k-10">
+<h5>K 10<a class="headerlink" href="#k-10" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_norm_knn_10</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_10</span><span class="p">)</span>
@@ -1892,22 +1580,22 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_norm_knn_10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi dengan data ternormalisasi </span><span class="si">{</span><span class="n">accuracy_norm_knn_10</span><span class="si">}</span><span class="s2"> model KNN-10&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.683982683982684
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi dengan data ternormalisasi 0.683982683982684 model KNN-10
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="id11">
-<h4>Accuracy of Unormalization Data<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
-<section id="id12">
-<h5>K 3<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h5>
+<section id="accuracy-of-unormalization-data">
+<h4>Accuracy of Unormalization Data<a class="headerlink" href="#accuracy-of-unormalization-data" title="Permalink to this headline">#</a></h4>
+<section id="id2">
+<h5>K 3<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_knn_3</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_3</span><span class="p">)</span>
@@ -1940,19 +1628,19 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_knn_3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi dengan data tidak ternormalisasi </span><span class="si">{</span><span class="n">accuracy_knn_3</span><span class="si">}</span><span class="s2"> model KNN-3&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.658008658008658
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi dengan data tidak ternormalisasi 0.658008658008658 model KNN-3
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="id13">
-<h5>K 5<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h5>
+<section id="id3">
+<h5>K 5<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_knn_5</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_5</span><span class="p">)</span>
@@ -1985,19 +1673,19 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_knn_5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi dengan data tidak ternormalisasi </span><span class="si">{</span><span class="n">accuracy_knn_5</span><span class="si">}</span><span class="s2"> model KNN-5&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.658008658008658
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi dengan data tidak ternormalisasi 0.658008658008658 model KNN-5
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="id14">
-<h5>K 7<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h5>
+<section id="id4">
+<h5>K 7<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_knn_7</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_7</span><span class="p">)</span>
@@ -2030,19 +1718,19 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_knn_7</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi dengan data tidak ternormalisasi </span><span class="si">{</span><span class="n">accuracy_knn_7</span><span class="si">}</span><span class="s2"> model KNN-7&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6666666666666666
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi dengan data tidak ternormalisasi 0.6666666666666666 model KNN-7
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="id15">
-<h5>K 10<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h5>
+<section id="id5">
+<h5>K 10<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_knn_10</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_10</span><span class="p">)</span>
@@ -2075,17 +1763,180 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_knn_10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi dengan data tidak ternormalisasi </span><span class="si">{</span><span class="n">accuracy_knn_10</span><span class="si">}</span><span class="s2"> model KNN-10&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6623376623376623
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi dengan data tidak ternormalisasi 0.6623376623376623 model KNN-10
 </pre></div>
 </div>
 </div>
 </div>
 </section>
+</section>
+</section>
+</section>
+<section id="ensemble-stacking">
+<h2>Ensemble Stacking<a class="headerlink" href="#ensemble-stacking" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>Teknik menggunakan banyak model untuk menghasilkan satu model prediksi terbaik</p>
+</div></blockquote>
+<p>Contoh <strong>Stack Classifier</strong></p>
+<ul class="simple">
+<li><p><em>gnb</em> adalah Gaussian Naive Bayes</p></li>
+<li><p><em>knn-3</em> adalah KNN dengan K = 3</p></li>
+<li><p><em>knn-5</em> adalah KNN dengan K = 5</p></li>
+<li><p><em>knn-7</em> adalah KNN dengan K = 7</p></li>
+<li><p><em>knn-10</em> adalah KNN dengan K = 10</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;gnb&#39;</span><span class="p">,</span><span class="n">clf_norm_nb</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s1">&#39;knn-3&#39;</span><span class="p">,</span><span class="n">clf_norm_knn_3</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s1">&#39;knn-5&#39;</span><span class="p">,</span><span class="n">clf_norm_knn_5</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;knn-7&#39;</span><span class="p">,</span><span class="n">clf_norm_knn_7</span><span class="p">),</span> 
+    <span class="p">(</span><span class="s1">&#39;knn-10&#39;</span><span class="p">,</span><span class="n">clf_norm_knn_10</span><span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<section id="ensemble-stacking-dengan-data-yang-sudah-di-normalisasi">
+<h3>Ensemble Stacking dengan data yang sudah di normalisasi<a class="headerlink" href="#ensemble-stacking-dengan-data-yang-sudah-di-normalisasi" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimators_norm</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;gnb&#39;</span><span class="p">,</span><span class="n">clf_norm_nb</span><span class="p">),(</span><span class="s1">&#39;knn-5&#39;</span><span class="p">,</span><span class="n">clf_norm_knn_5</span><span class="p">),(</span><span class="s1">&#39;knn-7&#39;</span><span class="p">,</span><span class="n">clf_norm_knn_7</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_estimator_dtc</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">final_estimator_lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">final_estimator_knn_7</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="meta-classifier-is-decision-tree-classifier">
+<h4>Meta Classifier is Decision Tree Classifier<a class="headerlink" href="#meta-classifier-is-decision-tree-classifier" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stack_model</span> <span class="o">=</span> <span class="n">StackingClassifier</span><span class="p">(</span> <span class="n">estimators</span> <span class="o">=</span> <span class="n">estimators_norm</span><span class="p">,</span><span class="n">final_estimator</span> <span class="o">=</span> <span class="n">final_estimator_dtc</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">stack_model</span><span class="p">,</span><span class="n">X_train_norm</span><span class="p">,</span><span class="n">y_train_norm</span><span class="p">,</span><span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The accuracy score of is:&quot;</span><span class="p">,</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The accuracy score of is: 0.5945652173913044
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="meta-classifier-is-logistic-regression">
+<h4>Meta Classifier is Logistic Regression<a class="headerlink" href="#meta-classifier-is-logistic-regression" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stack_model</span> <span class="o">=</span> <span class="n">StackingClassifier</span><span class="p">(</span> <span class="n">estimators</span> <span class="o">=</span> <span class="n">estimators_norm</span><span class="p">,</span><span class="n">final_estimator</span> <span class="o">=</span> <span class="n">final_estimator_lr</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">stack_model</span><span class="p">,</span><span class="n">X_train_norm</span><span class="p">,</span><span class="n">y_train_norm</span><span class="p">,</span><span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The accuracy score of is:&quot;</span><span class="p">,</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The accuracy score of is: 0.6543478260869565
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="meta-classifier-is-knn-k-7">
+<h4>Meta Classifier is KNN (K = 7)<a class="headerlink" href="#meta-classifier-is-knn-k-7" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stack_model</span> <span class="o">=</span> <span class="n">StackingClassifier</span><span class="p">(</span> <span class="n">estimators</span> <span class="o">=</span> <span class="n">estimators_norm</span><span class="p">,</span><span class="n">final_estimator</span> <span class="o">=</span> <span class="n">final_estimator_knn_7</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">stack_model</span><span class="p">,</span><span class="n">X_train_norm</span><span class="p">,</span><span class="n">y_train_norm</span><span class="p">,</span><span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The accuracy score of is:&quot;</span><span class="p">,</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The accuracy score of is: 0.6130434782608696
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="ensemble-stacking-dengan-data-yang-tidak-di-normalisasi">
+<h3>Ensemble Stacking dengan data yang <strong>tidak</strong> di normalisasi<a class="headerlink" href="#ensemble-stacking-dengan-data-yang-tidak-di-normalisasi" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimators_unnorm</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;gnb&#39;</span><span class="p">,</span><span class="n">clf_nb</span><span class="p">),(</span><span class="s1">&#39;knn-5&#39;</span><span class="p">,</span><span class="n">clf_knn_5</span><span class="p">),(</span><span class="s1">&#39;knn-7&#39;</span><span class="p">,</span><span class="n">clf_knn_7</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_estimator_dtc</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">final_estimator_lr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">final_estimator_knn_7</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">k_is_7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id6">
+<h4>Meta Classifier is Decision Tree Classifier<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stack_model</span> <span class="o">=</span> <span class="n">StackingClassifier</span><span class="p">(</span> <span class="n">estimators</span> <span class="o">=</span> <span class="n">estimators_unnorm</span><span class="p">,</span><span class="n">final_estimator</span> <span class="o">=</span> <span class="n">final_estimator_dtc</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">stack_model</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span><span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The accuracy score of is:&quot;</span><span class="p">,</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The accuracy score of is: 0.601086956521739
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h4>Meta Classifier is Logistic Regression<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stack_model</span> <span class="o">=</span> <span class="n">StackingClassifier</span><span class="p">(</span> <span class="n">estimators</span> <span class="o">=</span> <span class="n">estimators_unnorm</span><span class="p">,</span><span class="n">final_estimator</span> <span class="o">=</span> <span class="n">final_estimator_lr</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">stack_model</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span><span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The accuracy score of is:&quot;</span><span class="p">,</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The accuracy score of is: 0.6619565217391304
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id8">
+<h4>Meta Classifier is KNN (K = 7)<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stack_model</span> <span class="o">=</span> <span class="n">StackingClassifier</span><span class="p">(</span> <span class="n">estimators</span> <span class="o">=</span> <span class="n">estimators_unnorm</span><span class="p">,</span><span class="n">final_estimator</span> <span class="o">=</span> <span class="n">final_estimator_knn_7</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">stack_model</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span><span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span><span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The accuracy score of is:&quot;</span><span class="p">,</span><span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The accuracy score of is: 0.6228260869565216
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -2118,17 +1969,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Tugas_8.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Tugas_9.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Implementasi Naive Bayes Studi Kasus Peminjaman Uang (Tugas 8)</p>
+            <p class="prev-next-title">Best Accuracy Between Normalization vs Unnomarlization (Tugas 9)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Tugas_11.html" title="next page">
+    <a class='right-next' id="next-link" href="Uas_Pendat.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Ensamble Stacking (Tugas 11)</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
